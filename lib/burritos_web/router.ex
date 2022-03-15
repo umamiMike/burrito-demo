@@ -10,9 +10,7 @@ defmodule BurritosWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
+  forward "/api", Absinthe.Plug, schema: BurritosWeb.Schema
 
   scope "/", BurritosWeb do
     pipe_through :browser
