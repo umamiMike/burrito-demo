@@ -24,7 +24,12 @@ function Hello() {
       });
   }, [setMessage]);
 
-  return <div>Burritos. {message}</div>;
+  return <div>
+    <h1 className="text-3xl font-bold underline">
+      Burritos. {message}
+    </h1>
+    </div>;
+      
 }
 
 export default App;
