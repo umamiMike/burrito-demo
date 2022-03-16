@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :burritos, Burritos.Repo,
-  username: "postgres",
+  username: "mike",
   password: "postgres",
   hostname: "localhost",
   database: "burritos_dev",
