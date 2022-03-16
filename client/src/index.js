@@ -4,12 +4,10 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
-  useMutation,
   gql,
+  createHttpLink,
 } from "@apollo/client";
 
-import { createHttpLink } from "apollo-link-http";
 import App from "./App";
 
 const cache = new InMemoryCache();
@@ -31,15 +29,6 @@ const ALL_ITEMS = gql`
     }
   }
 `;
-
-client
-  .query({
-    query: ALL_ITEMS,
-  })
-  .then((result) => {
-    console.log("result: ");
-    console.log(result);
-  });
 
 const MUTATE_ITEM = gql`
   mutation AddItem($newItem: input) {

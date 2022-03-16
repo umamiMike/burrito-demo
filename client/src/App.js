@@ -11,31 +11,32 @@ const ALL_ITEMS = gql`
 
 const MUTATE_ITEM = gql`
   mutation AddItem {
-    currentValue
+    addItem(id: "fooo", name: "fooobian") {
+      items {
+        name
+      }
+    }
   }
 `;
-function App() {
+
+function ItemList() {
   const [addItem, { data, loading, error }] = useMutation(MUTATE_ITEM);
+  addItem({ variables: { id: "foooool", name: "bigger fooool" } });
+  if (loading) return <p> loading</p>;
 
-  const addItemHandler = (e) => {
-    e.preventDefault();
-    addItem({ variables: { id: "foooool", name: "bigger fooool" } });
-    console.log("clicked");
-    console.log(error);
-  };
-
+  if (data) return <p> {JSON.stringify(data)}</p>;
+  return <p> list of items...</p>;
+}
+function App() {
   return (
     <div className="App">
       <div>
         <h2>My first Apollo app 🚀</h2>
       </div>
-
       <header className="App-header">
         <Hello />
+        <ItemList />
       </header>
-      <div>
-        <button onClick={addItemHandler}>Add a burrito</button>
-      </div>
     </div>
   );
 }

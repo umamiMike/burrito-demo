@@ -10,6 +10,10 @@ defmodule BurritosWeb.Schema do
     field :name, :string
   end
 
+  object :items do
+    field :items, list_of(:item)
+  end
+
   query do
     @desc "get all items"
     field :all_items, list_of(:item) do
@@ -19,11 +23,11 @@ defmodule BurritosWeb.Schema do
 
   mutation do
     @desc "create a new item"
-    field :addItem, :item do
+    field :add_item, :items do
       arg(:id, non_null(:string))
       arg(:name, non_null(:string))
 
-      resolve(&Web.NewsResolver.create_link/3)
+      resolve(&Resolvers.Item.add_item/3)
     end
   end
 end
@@ -37,7 +41,7 @@ defmodule BurritosWeb.Resolvers.Item do
 
   def add_item(_parent, args, _resolution) do
     item = %{id: args.id, name: args.name}
-
-    {:ok, [@items | item]}
+    all_items = [item | @items]
+    {:ok, %{items: all_items}}
   end
 end
