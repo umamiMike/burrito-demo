@@ -2,12 +2,38 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 
-import ApolloClient from "apollo-boost";
+import ApolloClient from "apollo-client";
 import { gql } from "apollo-boost";
 
-const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+// import ApolloClient from "apollo-client";
+import { createHttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
+const cache = new InMemoryCache();
+// Create an HTTP link to the Absinthe server.
+const link = createHttpLink({
+  uri: "http://localhost:4000/api",
 });
+
+const client = new ApolloClient({
+  link,
+  cache,
+});
+
+client
+  .query({
+    query: gql`
+      query {
+        allItems {
+          id
+          name
+        }
+      }
+    `,
+  })
+  .then((result) => {
+    console.log("result: ");
+    console.log(result);
+  });
 
 // render(<App />, document.getElementById("root"));
 
@@ -25,36 +51,10 @@ function App() {
     </div>
   );
 }
-
-client
-  .query({
-    query: gql`
-      {
-        rates(currency: "USD") {
-          currency
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result.data.rates));
-
 function Hello() {
-  const [message, setMessage] = useState(null);
-  useEffect(() => {
-    fetch("/heading")
-      .then((x) => {
-        console.log({ x });
-        return x.json();
-      })
-      .then((x) => {
-        console.log({ x });
-        return setMessage(x.burritos);
-      });
-  }, [setMessage]);
-
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Burritos. {message}</h1>
+      <h1 className="text-3xl font-bold underline">Burritos</h1>
     </div>
   );
 }
