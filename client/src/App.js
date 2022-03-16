@@ -42,7 +42,7 @@ function App() {
 function Hello() {
   const { loading, error, data } = useQuery(ALL_ITEMS, {});
   if (loading) return <p>Loading ...</p>;
-  return <pre>Hello {JSON.stringify(data)}!</pre>;
+  return <pre>Hello {JSON.stringify(data, null, "\t")}!</pre>;
 }
 
 export default App;
