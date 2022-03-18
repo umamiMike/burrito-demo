@@ -20,13 +20,14 @@ const MUTATE_ITEM = gql`
 `;
 
 function ItemList() {
-  const { data, loading, error } = useMutation(MUTATE_ITEM, {
+  const [addItem, { data, loading, error }] = useMutation(MUTATE_ITEM, {
     variables: { id: "foooool", name: "bigger fooool" },
   });
-  if (loading) return <p> loading</p>;
+  console.log("itmelist run");
 
-  if (data) return <p> {JSON.stringify(data)}</p>;
-  return <p> list of items...</p>;
+  if (loading) return <p> {loading}</p>;
+  if (data) return <textarea value={JSON.stringify(data)}></textarea>;
+  return <button onClick={addItem}>yarg</button>;
 }
 
 function App() {
@@ -44,7 +45,6 @@ function App() {
 }
 function Hello() {
   const { loading, error, data } = useQuery(ALL_ITEMS, {});
-  if (loading) return <p>Loading ...</p>;
   return <pre>Hello {JSON.stringify(data, null, "\t")}!</pre>;
 }
 
