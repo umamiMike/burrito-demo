@@ -20,13 +20,15 @@ const MUTATE_ITEM = gql`
 `;
 
 function ItemList() {
-  const [addItem, { data, loading, error }] = useMutation(MUTATE_ITEM);
-  addItem({ variables: { id: "foooool", name: "bigger fooool" } });
+  const { data, loading, error } = useMutation(MUTATE_ITEM, {
+    variables: { id: "foooool", name: "bigger fooool" },
+  });
   if (loading) return <p> loading</p>;
 
   if (data) return <p> {JSON.stringify(data)}</p>;
   return <p> list of items...</p>;
 }
+
 function App() {
   return (
     <div className="App">
