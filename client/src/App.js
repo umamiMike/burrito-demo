@@ -19,6 +19,37 @@ const MUTATE_ITEM = gql`
   }
 `;
 
+const state = {
+  order_types: [
+    {
+      name: "burrito",
+      amt: 5.99,
+      toppings: [
+        { name: "sour cream", amt: 1.99, selected: false },
+        { name: "guac", amt: 3.99, selected: false },
+      ],
+    },
+    {
+      name: "taco",
+      amt: 8.0,
+      toppings: [
+        { name: "sour cream", amt: 1.99, selected: false },
+        { name: "chilis", amt: 2.99, selected: false },
+      ],
+    },
+  ],
+  order_started: {
+    type: "burrito",
+    amt: 5.99,
+    toppings: [
+      { name: "sour cream", amt: 1.99, selected: false },
+      { name: "guac", amt: 4.99, selected: false },
+    ],
+  },
+};
+
+function Topping() {}
+
 function ItemList() {
   const [addItem, { data, loading, error }] = useMutation(MUTATE_ITEM, {
     variables: { id: "foooool", name: "bigger fooool" },
