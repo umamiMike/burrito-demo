@@ -6,7 +6,7 @@ defmodule Burritos.Order.Burrito do
   @foreign_key_type :binary_id
   schema "burritos" do
     field :name, :string
-    field :toppings, :json
+    field :toppings, :string
 
     timestamps()
   end

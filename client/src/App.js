@@ -19,57 +19,72 @@ const MUTATE_ITEM = gql`
   }
 `;
 
-const state = {
-  order_types: [
-    {
-      name: "burrito",
-      amt: 5.99,
-      toppings: [
-        { name: "sour cream", amt: 1.99, selected: false },
-        { name: "guac", amt: 3.99, selected: false },
-      ],
-    },
-    {
-      name: "taco",
-      amt: 8.0,
-      toppings: [
-        { name: "sour cream", amt: 1.99, selected: false },
-        { name: "chilis", amt: 2.99, selected: false },
-      ],
-    },
-  ],
-  order_started: {
-    type: "burrito",
-    amt: 5.99,
-    toppings: [
-      { name: "sour cream", amt: 1.99, selected: false },
-      { name: "guac", amt: 4.99, selected: false },
-    ],
-  },
+const Toppings = (toppings) => {
+  //       { name: "sour cream", amt: 1.99, selected: false },
+  const onToppingChanged = (e) => {
+    console.log(e.target.isChecked);
+  };
+  return toppings.map((topping) => (
+    <label>
+      <input
+        type="checkbox"
+        value={topping.amt}
+        checked={topping.selected}
+        onChange={onToppingChanged}
+      />
+      {topping.name}
+    </label>
+  ));
 };
 
-function Topping() {}
+const Checkbox = (label, value, onChange) => {
+  return (
+    <label>
+      <input type="checkbox" checked={value} onChange={onChange} />
+      {label}
+    </label>
+  );
+};
 
 function ItemList() {
   const [addItem, { data, loading, error }] = useMutation(MUTATE_ITEM, {
     variables: { id: "foooool", name: "bigger fooool" },
   });
-  console.log("itmelist run");
-
   if (loading) return <p> {loading}</p>;
   if (data) return <textarea value={JSON.stringify(data)}></textarea>;
   return <button onClick={addItem}>yarg</button>;
 }
 
 function App() {
+  const state = {
+    order_types: [
+      {
+        name: "burrito",
+        amt: 5.99,
+        toppings: [
+          { name: "sour cream", amt: 1.99, selected: false },
+          { name: "guac", amt: 3.99, selected: false },
+        ],
+      },
+      {
+        name: "taco",
+        amt: 8.0,
+        toppings: [
+          { name: "sour cream", amt: 1.99, selected: false },
+          { name: "chilis", amt: 2.99, selected: false },
+        ],
+      },
+    ],
+  };
+  const { name, amt, toppings } = state.order_types.find(
+    (ot) => ot.name == "burrito"
+  );
   return (
     <div className="App">
-      <div>
-        <h2>My first Apollo app 🚀</h2>
-      </div>
       <header className="App-header">
         <Hello />
         <ItemList />
+        {Toppings(toppings, false)}
       </header>
     </div>
   );
