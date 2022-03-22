@@ -4,9 +4,9 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  gql,
   createHttpLink,
 } from "@apollo/client";
+import "./styles/output.css";
 
 import App from "./App";
 
@@ -20,24 +20,6 @@ const client = new ApolloClient({
   link,
   cache,
 });
-
-const ALL_ITEMS = gql`
-  query {
-    allItems {
-      id
-      name
-    }
-  }
-`;
-
-const MUTATE_ITEM = gql`
-  mutation AddItem($newItem: input) {
-    addItem(input: $newItem) {
-      id
-      name
-    }
-  }
-`;
 
 ReactDOM.render(
   <React.StrictMode>

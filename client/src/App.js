@@ -22,7 +22,6 @@ const MUTATE_ITEM = gql`
 
 const Checkbox = (label, value) => {
   const [check, changeCheck] = useState(false);
-  console.log(check);
   return (
     <li>
       <label>
@@ -45,16 +44,8 @@ const Toppings = (toppings) => {
   return toppingsDOM;
 };
 
-function ItemList() {
-  const [addItem, { data, loading, error }] = useMutation(MUTATE_ITEM, {
-    variables: { id: "foooool", name: "bigger fooool" },
-  });
-  if (loading) return <p> {loading}</p>;
-  if (data) return <textarea value={JSON.stringify(data)}></textarea>;
-  return <button onClick={addItem}>yarg</button>;
-}
-
 function App() {
+  const { loading, error, data } = useQuery(ALL_ITEMS, {});
   const state = {
     order_types: [
       {
@@ -75,22 +66,43 @@ function App() {
       },
     ],
   };
+
+  /* order modal 
+
+  shows a picture of the order type
+  a list of topping selectors
+  a running amount
+    sums amt of order type + each selected topping amt
+  a button 
+
+*/
+
   const { name, amt, toppings } = state.order_types.find(
     (ot) => ot.name == "burrito"
   );
+
+  /*  list of order_types
+  a card
+  - [ ] for each order
+  - [ ]  useState
+   picture
+   click 
+    brings up an order modal
+  */
+  const Orders = () => {
+    return (
+      <div className="w-full border  focus black">
+        {" "}
+        <img src="https://fakeimg.pl/100x100/" />
+      </div>
+    );
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Hello />
-        <ItemList />
-        <ul>{Toppings(toppings)}</ul>
-      </header>
+      <Orders />
+      <ul>{Toppings(toppings)}</ul>
     </div>
   );
 }
-function Hello() {
-  const { loading, error, data } = useQuery(ALL_ITEMS, {});
-  return <pre>Hello {JSON.stringify(data, null, "\t")}!</pre>;
-}
-
 export default App;
