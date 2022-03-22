@@ -1,4 +1,5 @@
 import { useQuery, useMutation, gql } from "@apollo/client";
+import { useState } from "react";
 
 const ALL_ITEMS = gql`
   query {
@@ -19,31 +20,29 @@ const MUTATE_ITEM = gql`
   }
 `;
 
-const Toppings = (toppings) => {
-  //       { name: "sour cream", amt: 1.99, selected: false },
-  const onToppingChanged = (e) => {
-    console.log(e.target.isChecked);
-  };
-  return toppings.map((topping) => (
-    <label>
-      <input
-        type="checkbox"
-        value={topping.amt}
-        checked={topping.selected}
-        onChange={onToppingChanged}
-      />
-      {topping.name}
-    </label>
-  ));
+const Checkbox = (label, value) => {
+  const [check, changeCheck] = useState(false);
+  console.log(check);
+  return (
+    <li>
+      <label>
+        {label}
+        {value}
+        <input
+          type="checkbox"
+          checked={check}
+          onChange={() => changeCheck(!check)}
+        />
+      </label>
+    </li>
+  );
 };
 
-const Checkbox = (label, value, onChange) => {
-  return (
-    <label>
-      <input type="checkbox" checked={value} onChange={onChange} />
-      {label}
-    </label>
-  );
+const Toppings = (toppings) => {
+  let toppingsDOM = toppings.map((topping) => {
+    return Checkbox(topping.name, topping.amt);
+  });
+  return toppingsDOM;
 };
 
 function ItemList() {
@@ -84,7 +83,7 @@ function App() {
       <header className="App-header">
         <Hello />
         <ItemList />
-        {Toppings(toppings, false)}
+        <ul>{Toppings(toppings)}</ul>
       </header>
     </div>
   );
