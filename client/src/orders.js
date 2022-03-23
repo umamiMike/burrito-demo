@@ -1,5 +1,6 @@
 import { Checkbox } from "./checkbox";
 import { useState, useEffect } from "react";
+import { FakeIMG } from "./fake-image";
 
 export const Orders = () => {
   const state = {
@@ -24,26 +25,15 @@ export const Orders = () => {
   };
 
   const [st, state_handler] = useState(state);
-  useEffect(() => {});
 
-  const FakeIMG = (fakename, l, w) => {
-    return (
-      <img
-        className="order-img"
-        alt="alt"
-        src={`https://fakeimg.pl/${l}x${w}/444/ddd/?text=${fakename} image`}
-      />
-    );
-  };
   const OrderCard = (order) => {
     const [show, setShow] = useState(false);
 
     return (
-      <div className="order_type">
-        {FakeIMG(order.name, 100, 60)}
-        <button className="order_button" onClick={() => setShow(true)}>
-          +
-        </button>
+      <div>
+        <div onClick={() => setShow(true)} className="order_type">
+          {FakeIMG(order.name, 100, 60)}
+        </div>
         <Modal
           show={show}
           setShow={setShow}
@@ -99,6 +89,11 @@ export const Orders = () => {
     <div className="order-container">
       <div className="order_list">
         <OrderCards />
+      </div>
+      <div className="code">
+        <pre>
+          <code>{JSON.stringify(st, null, "  ")}</code>
+        </pre>
       </div>
     </div>
   );
