@@ -1,11 +1,5 @@
+import { Checkbox } from "./checkbox";
 import { useState } from "react";
-/* order modal 
-  shows a picture of the order type
-  a list of topping selectors
-  a running amount
-    sums amt of order type + each selected topping amt
-  a button 
-*/
 
 export const Orders = () => {
   const state = {
@@ -30,20 +24,54 @@ export const Orders = () => {
   };
 
   const OrderCard = (order) => {
-    let { name, amt } = order;
-    const [check, changeCheck] = useState(false);
+    const [show, setShow] = useState(false);
+
     return (
       <div className="order_type">
         <img
           alt="alt"
           src={`https://fakeimg.pl/100x100/?text=${order.name} image`}
         />
-        <button className="order_button" onClick={() => changeCheck(!check)}>
-          +
+        <button className="order_button" onClick={() => setShow(true)}>
+          {order.name} +
         </button>
+        <Modal show={show} setShow={setShow} toppings={order.toppings} />
       </div>
     );
   };
+  const Toppings = (toppings) => {
+    const toppingsDOM = toppings.map((topping) => {
+      return Checkbox(topping.name, topping.amt);
+    });
+    return <ul className="toppings">{toppingsDOM}</ul>;
+  };
+
+  /* order modal 
+  shows a picture of the order type
+  a list of topping selectors
+  a running amount
+    sums amt of order type + each selected topping amt
+  a button 
+*/
+  const Modal = ({ toppings, show, setShow }) => {
+    const content = show && (
+      <div className="overlay">
+        <div className="modal">
+          <button
+            className="modal-close"
+            type="button"
+            onClick={() => setShow(false)}
+          >
+            x
+          </button>
+          <div className="modal-body">{Toppings(toppings)}</div>
+        </div>
+      </div>
+    );
+
+    return content;
+  };
+
   const OrderCards = () => {
     const DOM = state.order_types.map((order) => {
       return OrderCard(order);

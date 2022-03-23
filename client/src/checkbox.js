@@ -3,16 +3,14 @@ import { useState } from "react";
 export const Checkbox = (label, value) => {
   const [check, changeCheck] = useState(false);
   return (
-    <li className="">
-      <label>
-        {label}
-        {value}
-        <input
-          type="checkbox"
-          checked={check}
-          onChange={() => changeCheck(!check)}
-        />
-      </label>
+    <li className="topping">
+      <p>{label}</p>
+      <input
+        type="checkbox"
+        label={label}
+        checked={check}
+        onChange={() => changeCheck(!check)}
+      />
     </li>
   );
 };
