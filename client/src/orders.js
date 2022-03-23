@@ -1,3 +1,4 @@
+import { useState } from "react";
 /* order modal 
   shows a picture of the order type
   a list of topping selectors
@@ -6,14 +7,6 @@
   a button 
 */
 
-/*  list of order_types
-  a card
-  - [ ] for each order
-  - [ ]  useState
-   picture
-   click 
-    brings up an order modal
-  */
 export const Orders = () => {
   const state = {
     order_types: [
@@ -35,28 +28,35 @@ export const Orders = () => {
       },
     ],
   };
+
+  const OrderCard = (order) => {
+    let { name, amt } = order;
+    const [check, changeCheck] = useState(false);
+    return (
+      <div className="order_type">
+        <img
+          alt="alt"
+          src={`https://fakeimg.pl/100x100/?text=${order.name} image`}
+        />
+        <button className="order_button" onClick={() => changeCheck(!check)}>
+          +
+        </button>
+      </div>
+    );
+  };
   const OrderCards = () => {
     const DOM = state.order_types.map((order) => {
-      return (
-        <div className="order_type">
-          <img
-            alt="alt"
-            src={`https://fakeimg.pl/100x100/?text=${order.name} image`}
-          />
-          <div>{order.name}</div>
-          <button className="order_button" value="schmalue">
-            foooo press me
-          </button>
-        </div>
-      );
+      return OrderCard(order);
     });
     return DOM;
   };
 
   return (
-    <div className="order_list">
-      Which would you like to order?
-      <OrderCards />
+    <div className="order-container">
+      <h2> Select 1 to start your order</h2>
+      <div className="order_list">
+        <OrderCards />
+      </div>
     </div>
   );
 };
