@@ -2,16 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gap: 16px;
+  --content-gap: 8px;
+  --nav-width: 1280px;
+  --main-width: 1280px;
+  --header-height: 60px;
+  --footer-height: 60px;
+  --radius: 8px;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.toppings {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.toppings li {
+  background-color: aqua;
+}
+.order_list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.order_type {
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+.order_button {
+  border: 1px solid grey;
+  background-color: grey;
+  border-radius: 2px;
 }
