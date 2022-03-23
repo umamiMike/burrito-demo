@@ -1,5 +1,5 @@
 import { Checkbox } from "./checkbox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Orders = () => {
   const state = {
@@ -23,19 +23,33 @@ export const Orders = () => {
     ],
   };
 
+  const [st, state_handler] = useState(state);
+  useEffect(() => {});
+
+  const FakeIMG = (fakename, l, w) => {
+    return (
+      <img
+        className="order-img"
+        alt="alt"
+        src={`https://fakeimg.pl/${l}x${w}/444/ddd/?text=${fakename} image`}
+      />
+    );
+  };
   const OrderCard = (order) => {
     const [show, setShow] = useState(false);
 
     return (
       <div className="order_type">
-        <img
-          alt="alt"
-          src={`https://fakeimg.pl/100x100/?text=${order.name} image`}
-        />
+        {FakeIMG(order.name, 100, 60)}
         <button className="order_button" onClick={() => setShow(true)}>
-          {order.name} +
+          +
         </button>
-        <Modal show={show} setShow={setShow} toppings={order.toppings} />
+        <Modal
+          show={show}
+          setShow={setShow}
+          toppings={order.toppings}
+          name={order.name}
+        />
       </div>
     );
   };
@@ -53,7 +67,7 @@ export const Orders = () => {
     sums amt of order type + each selected topping amt
   a button 
 */
-  const Modal = ({ toppings, show, setShow }) => {
+  const Modal = ({ name, toppings, show, setShow }) => {
     const content = show && (
       <div className="overlay">
         <div className="modal">
@@ -64,16 +78,18 @@ export const Orders = () => {
           >
             x
           </button>
-          <div className="modal-body">{Toppings(toppings)}</div>
+          <div className="modal-body">
+            {FakeIMG(name, 100, 100)}
+            {Toppings(toppings)}
+          </div>
         </div>
       </div>
     );
-
     return content;
   };
 
   const OrderCards = () => {
-    const DOM = state.order_types.map((order) => {
+    const DOM = st.order_types.map((order) => {
       return OrderCard(order);
     });
     return DOM;
@@ -81,7 +97,6 @@ export const Orders = () => {
 
   return (
     <div className="order-container">
-      <h2> Select 1 to start your order</h2>
       <div className="order_list">
         <OrderCards />
       </div>

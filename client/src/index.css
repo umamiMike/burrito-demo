@@ -15,9 +15,6 @@
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,8 +39,8 @@ code {
 }
 
 .order-container {
-  width: 600px;
-  background-color: var(--gray);
+  width: 300px;
+  /* background-color: var(--gray); */
 }
 .order_list {
   display: flex;
@@ -52,7 +49,6 @@ code {
   gap: 8px;
 }
 .order_type {
-  width: 200px;
   border-radius: 2px;
   background-color: var(--card-bg);
 }
