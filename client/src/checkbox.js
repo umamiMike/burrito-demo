@@ -7,6 +7,7 @@ export const Checkbox = (label, value) => {
       <p>{label}</p>
       <input
         type="checkbox"
+        value={value}
         label={label}
         checked={check}
         onChange={() => changeCheck(!check)}

@@ -1,33 +1,15 @@
 import { Checkbox } from "./checkbox";
 import { useState, useEffect } from "react";
 import { FakeIMG } from "./fake-image";
+import { base_state } from "./base_state";
 
 export const Orders = () => {
-  const state = {
-    order_types: [
-      {
-        name: "burrito",
-        amt: 5.99,
-        toppings: [
-          { name: "sour cream", amt: 1.99, selected: false },
-          { name: "guac", amt: 3.99, selected: false },
-        ],
-      },
-      {
-        name: "taco",
-        amt: 8.0,
-        toppings: [
-          { name: "sour cream", amt: 1.99, selected: false },
-          { name: "chilis", amt: 2.99, selected: false },
-        ],
-      },
-    ],
-  };
-
-  const [st, state_handler] = useState(state);
+  // src/base_state.js
+  const [st, state_handler] = useState(base_state);
 
   const OrderCard = (order) => {
     const [show, setShow] = useState(false);
+    const [amt, amtHandler] = useState(order.amt);
 
     return (
       <div>
@@ -36,10 +18,12 @@ export const Orders = () => {
         </div>
         <Modal
           show={show}
+          amt={amt}
           setShow={setShow}
           toppings={order.toppings}
           name={order.name}
         />
+        <p>{() => amtHandler(amt + 1)}</p>
       </div>
     );
   };
@@ -57,7 +41,11 @@ export const Orders = () => {
     sums amt of order type + each selected topping amt
   a button 
 */
-  const Modal = ({ name, toppings, show, setShow }) => {
+  // note passing through the
+  const Modal = ({ name, amt, toppings, show, setShow }) => {
+    // const [amount, amountHandler] = useState(amt);
+    let amount = amt;
+    <h1> {amount} </h1>;
     const content = show && (
       <div className="overlay">
         <div className="modal">
@@ -92,7 +80,7 @@ export const Orders = () => {
       </div>
       <div className="code">
         <pre>
-          <code>{JSON.stringify(st, null, "  ")}</code>
+          <code>{JSON.stringify(st, null, "\t")}</code>
         </pre>
       </div>
     </div>
