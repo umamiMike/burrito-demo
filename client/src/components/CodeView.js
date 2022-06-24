@@ -1,4 +1,4 @@
-export const CodeView = (st) => {
+const CodeView = (st) => {
   return (
     <div className="code">
       <pre>
@@ -7,3 +7,5 @@ export const CodeView = (st) => {
     </div>
   );
 };
+
+export { CodeView };

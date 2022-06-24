@@ -1,4 +1,4 @@
-import { Checkbox } from "./checkbox";
+import { Checkbox } from "./Checkbox";
 
 export const Toppings = (toppings) => {
   const toppingsDOM = toppings.map((topping) => {

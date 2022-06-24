@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FakeIMG } from "./fake-image";
+import { FakeIMG } from "./FakeImage";
 import { Modal } from "./Modal";
 
 export const OrderCard = (order) => {

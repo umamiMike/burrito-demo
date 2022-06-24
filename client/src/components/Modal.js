@@ -1,5 +1,5 @@
-import { FakeIMG } from "./fake-image";
-import { Toppings } from "./toppings";
+import { FakeIMG } from "./FakeImage";
+import { Toppings } from "./Toppings";
 export const Modal = ({ name, amt, toppings, show, setShow }) => {
   // const [amount, amountHandler] = useState(amt);
   let amount = amt;

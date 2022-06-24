@@ -1,7 +1,8 @@
-import { Checkbox } from "./checkbox";
+import { Checkbox } from "./components/Checkbox";
 import { useState } from "react";
 import { base_state } from "./base_state";
-import { OrderCard } from "./OrderCard";
+import { OrderCard } from "./components/OrderCard";
+import { CodeView } from "./components/CodeView";
 
 export const Orders = () => {
   const [st, state_handler] = useState(base_state);
@@ -25,11 +26,7 @@ export const Orders = () => {
       <div className="order_list">
         <OrderCards />
       </div>
-      <div className="code">
-        <pre>
-          <code>{JSON.stringify(st, null, "\t")}</code>
-        </pre>
-      </div>
+      {CodeView(st)}
     </div>
   );
 };
