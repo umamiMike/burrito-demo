@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { guid } from "../utils";
 
 export const Checkbox = (label, value) => {
   const [check, changeCheck] = useState(false);
+  const gid = guid();
   return (
-    <li className="topping">
+    <li key={gid} className="topping">
       <p>{label}</p>
       <input
         type="checkbox"

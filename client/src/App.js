@@ -1,10 +1,15 @@
 import { Orders } from "./orders";
-
+import { base_state } from "./base_state";
+import AppContext from "./AppContext";
+import { guid } from "./utils";
 const App = () => {
+  console.log(guid());
   return (
-    <div className="App">
-      <Orders />
-    </div>
+    <AppContext.Provider value={base_state}>
+      <div className="App">
+        <Orders />
+      </div>
+    </AppContext.Provider>
   );
 };
 
