@@ -1,4 +1,6 @@
 export const base_state = {
+  shop_splash_img: "https://i.imgur.com/jBzfI4t.jpg",
+  shop_description: "A festive place to eat your foods",
   order_types: [
     {
       name: "burrito",
