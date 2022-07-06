@@ -411,6 +411,31 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.m-1 {
+  margin: 0.25rem;
+}
+.m-4 {
+  margin: 1rem;
+}
+.flex {
+  display: flex;
+}
+.w-1 {
+  width: 0.25rem;
+}
+.flex-row {
+  flex-direction: row;
+}
+.place-content-around {
+  place-content: space-around;
+}
+.border-2 {
+  border-width: 2px;
+}
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 224 / var(--tw-bg-opacity));
+}
 
 :root {
   --gap: 16px;
