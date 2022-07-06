@@ -2,20 +2,14 @@ import { useContext } from "react";
 import { Checkbox } from "./components/Checkbox";
 import { guid } from "./utils";
 import AppContext from "./AppContext";
+import { Splash } from "./Splash";
 
 // array of toppings
 // create set of toppings from all orders in list
 
 export const Orders = () => {
   const ctx = useContext(AppContext);
-  const Splash = () => {
-    return (
-      <div>
-        {ctx.shop_description}
-        <img className="" alt="alt" src={ctx.shop_splash_img} />
-      </div>
-    );
-  };
+  // src/Splash.js
 
   const OrderCards = () => {
     return ctx.order_types.map((order) => {
@@ -30,8 +24,9 @@ export const Orders = () => {
   };
   return (
     <div className="order-container">
-      <Splash />
+      <Splash props={ctx} />
       <div className="flex-row m-4 border-2 border-grey-300">
+        order cards
         <OrderCards />
       </div>
       <div className="order_list"></div>
