@@ -13,9 +13,13 @@ export const Orders = () => {
 
   const OrderCards = () => {
     return ctx.order_types.map((order) => {
+      const key = guid();
       return (
-        <div className="flex m-1 bg-gray-400 place-content-around">
-          <Checkbox className="w-1" id="foo" label="foo" value="foo" />
+        <div
+          key={key}
+          className="w-full border-2 border-b-4 border-gray-300 rounded-xl hover:bg-gray-50 "
+        >
+          <Checkbox className="w-1" id={key} value="foo" />
           <div> {order.name}</div>
           <div>${order.amt}</div>
         </div>
@@ -23,11 +27,13 @@ export const Orders = () => {
     });
   };
   return (
-    <div className="order-container">
+    <div className="flex-row items-center justify-start min-h-screen order-container">
       <Splash props={ctx} />
-      <div className="flex-row m-4 border-2 border-grey-300">
-        order cards
+      <div className="flex-row shadow-xl">
         <OrderCards />
+        <button className="flex p-2.5 bg-yellow-500 rounded-xl hover:rounded-3xl hover:bg-yellow-600 transition-all duration-300 text-white">
+          start your order
+        </button>
       </div>
       <div className="order_list"></div>
     </div>

@@ -14,9 +14,12 @@
   --card-bg: #eeeeee;
 }
 body {
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+h2 {
+  font-size: 20pt;
+  font-weight: bold;
 }
 
 code {

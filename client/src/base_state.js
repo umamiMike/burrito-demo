@@ -5,6 +5,7 @@ export const base_state = {
   order_types: [
     {
       name: "burrito",
+      description: "a yummy deep fried steak thingy",
       amt: 5.99,
       toppings: [
         { name: "sour cream", amt: 1.99, selected: false },
@@ -13,6 +14,7 @@ export const base_state = {
     },
     {
       name: "taco",
+      description: "shredded beef or chickn with cheese and sauce",
       amt: 8.0,
       toppings: [
         { name: "sour cream", amt: 1.99, selected: false },
