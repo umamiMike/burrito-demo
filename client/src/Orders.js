@@ -17,8 +17,8 @@ export const Orders = () => {
       return (
         <div
           key={key}
-          className="w-full border-2 border-b-4 border-gray-300 rounded-xl hover:bg-gray-50 "
-          onClick={(e) => {
+          className="flex border-b-4 border-gray-300 shadow-xl w-half rounded-xl hover:bg-gray-50 "
+          onClick={() => {
             ctx.stateDispatch({ type: "start_order", payload: order });
           }}
         >
@@ -30,13 +30,10 @@ export const Orders = () => {
     });
   };
   return (
-    <div className="flex-row items-center justify-start min-h-screen order-container">
+    <div className="flex-row items-center justify-start min-h-screen ">
       <Splash props={ctx.stateValue} />
       <div className="flex-row shadow-xl">
         <OrderCards />
-        <button className="flex p-2.5 bg-yellow-500 rounded-xl hover:rounded-3xl hover:bg-yellow-600 transition-all duration-300 text-white">
-          start your order
-        </button>
       </div>
     </div>
   );

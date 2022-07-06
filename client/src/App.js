@@ -9,7 +9,7 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, base_state);
   return (
     <AppContext.Provider value={{ stateValue: state, stateDispatch: dispatch }}>
-      <div className="flex App">
+      <div className="relative flex flex-col justify-center py-6 overflow-hidden bg-gray-50 sm:py-12">
         <Orders />
         <Cart />
       </div>
