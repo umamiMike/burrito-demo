@@ -22,11 +22,6 @@ h2 {
   font-weight: bold;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .toppings {
   width: inherit;
   display: flex;
@@ -111,7 +106,4 @@ code {
 }
 .code {
   font-size: 0.6rem;
-}
-pre {
-  display: block;
 }

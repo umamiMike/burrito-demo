@@ -38,7 +38,6 @@ export const Orders = () => {
           start your order
         </button>
       </div>
-      <div className="order_list"></div>
     </div>
   );
 };

@@ -22,4 +22,5 @@ export const base_state = {
       ],
     },
   ],
+  cart: {},
 };

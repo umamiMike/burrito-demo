@@ -1,9 +1,15 @@
-const CodeView = (st) => {
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { gruvboxDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import AppContext from "../AppContext";
+import { useContext } from "react";
+
+const CodeView = () => {
+  const ctx = useContext(AppContext);
   return (
     <div className="code">
-      <pre>
-        <code>{JSON.stringify(st, null, "\t")}</code>
-      </pre>
+      <SyntaxHighlighter language="javascript" style={gruvboxDark}>
+        {JSON.stringify(ctx.stateValue.cart, null, "\t")}
+      </SyntaxHighlighter>
     </div>
   );
 };
