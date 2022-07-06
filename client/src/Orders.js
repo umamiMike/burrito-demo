@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Checkbox } from "./components/Checkbox";
 import { guid } from "./utils";
 import AppContext from "./AppContext";
 import { Splash } from "./Splash";
@@ -14,12 +13,15 @@ export const Orders = () => {
   const OrderCards = () => {
     return ctx.stateValue.order_types.map((order) => {
       const key = guid();
+
       return (
         <div
           key={key}
           className="w-full border-2 border-b-4 border-gray-300 rounded-xl hover:bg-gray-50 "
+          onClick={(e) => {
+            ctx.stateDispatch({ type: "start_order", payload: order });
+          }}
         >
-          <Checkbox className="w-1" id={key} value="foo" />
           <div> {order.name}</div>
           <div className="order-description"> {order.description}</div>
           <div>${order.amt}</div>
