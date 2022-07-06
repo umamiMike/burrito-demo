@@ -9,13 +9,29 @@ import { Splash } from "./Splash";
 
 export const Orders = () => {
   const ctx = useContext(AppContext);
-  console.log(ctx);
   // src/Splash.js
 
+  const OrderCards = () => {
+    return ctx.stateValue.order_types.map((order) => {
+      const key = guid();
+      return (
+        <div
+          key={key}
+          className="w-full border-2 border-b-4 border-gray-300 rounded-xl hover:bg-gray-50 "
+        >
+          <Checkbox className="w-1" id={key} value="foo" />
+          <div> {order.name}</div>
+          <div className="order-description"> {order.description}</div>
+          <div>${order.amt}</div>
+        </div>
+      );
+    });
+  };
   return (
     <div className="flex-row items-center justify-start min-h-screen order-container">
-      <Splash props={ctx} />
+      <Splash props={ctx.stateValue} />
       <div className="flex-row shadow-xl">
+        <OrderCards />
         <button className="flex p-2.5 bg-yellow-500 rounded-xl hover:rounded-3xl hover:bg-yellow-600 transition-all duration-300 text-white">
           start your order
         </button>

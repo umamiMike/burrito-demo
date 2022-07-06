@@ -26,6 +26,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .toppings {
   width: inherit;
   display: flex;
@@ -43,6 +44,8 @@ code {
 
 .order-container {
   width: 300px;
+  padding-left: %50;
+  padding-right: %50;
   /* background-color: var(--gray); */
 }
 .order_list {
