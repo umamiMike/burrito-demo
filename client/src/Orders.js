@@ -31,7 +31,7 @@ export const Orders = () => {
   };
   return (
     <div className="flex-row items-center justify-start min-h-screen ">
-      <Splash props={ctx.stateValue} />
+      <Splash className="max-w-half" props={ctx.stateValue} />
       <div className="flex-row shadow-xl">
         <OrderCards />
       </div>
