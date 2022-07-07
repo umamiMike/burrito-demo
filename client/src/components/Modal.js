@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import AppContext from "../AppContext";
 
+const Topping = ({ name }) => {
+  return <div>{name}</div>;
+};
 export const Modal = () => {
   const ctx = useContext(AppContext);
   return (
@@ -13,7 +16,11 @@ export const Modal = () => {
         >
           x
         </button>
-        <div className="modal-body">I am a modal body</div>
+        <div className="modal-body">
+          {ctx.stateValue.cart.items[0].toppings.map((t) => (
+            <Topping name={t.name} />
+          ))}
+        </div>
       </div>
     </div>
   );
