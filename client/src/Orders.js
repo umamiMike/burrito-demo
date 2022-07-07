@@ -1,14 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { guid } from "./utils";
 import AppContext from "./AppContext";
 import { Splash } from "./Splash";
+import { Modal } from "./components/Modal";
+import { FakeImage } from "./FakeImage";
 
 // array of toppings
 // create set of toppings from all orders in list
 
 export const Orders = () => {
   const ctx = useContext(AppContext);
-  // src/Splash.js
 
   const OrderCards = () => {
     return ctx.stateValue.order_types.map((order) => {
@@ -17,24 +18,27 @@ export const Orders = () => {
       return (
         <div
           key={key}
-          className="flex border-b-4 border-gray-300 shadow-xl w-half rounded-xl hover:bg-gray-50 "
+          className="items-center align-middle shadow-md grid grid-cols-4 place-content-stretch rounded-xl"
           onClick={() => {
-            ctx.stateDispatch({ type: "start_order", payload: order });
+            ctx.stateDispatch({ type: "START_ORDER", payload: order });
           }}
         >
-          <div> {order.name}</div>
+          <FakeImage args={{ name: order.name, l: 64, w: 64 }} />
+          <div className="w-1 font-bold"> {order.name}</div>
           <div className="order-description"> {order.description}</div>
-          <div>${order.amt}</div>
+          <div className="align-">${order.amt}</div>
         </div>
       );
     });
   };
+
   return (
-    <div className="flex-row items-center justify-start min-h-screen ">
-      <Splash className="max-w-half" props={ctx.stateValue} />
-      <div className="flex-row shadow-xl">
+    <div className="flex-row items-center justify-start ">
+      <Splash className="" props={ctx.stateValue} />
+      <div className="flex-row border border-black">
         <OrderCards />
       </div>
+      {ctx.stateValue.cart.items && <Modal />}
     </div>
   );
 };

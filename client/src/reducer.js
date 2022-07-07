@@ -5,13 +5,16 @@ export const reducer = (state, action) => {
         ...state,
         cart: [action.item],
       };
-    case "start_order":
+    case "START_ORDER":
       console.log("order started");
       console.log(action.payload);
 
-      let newstate = { ...state, cart: action.payload };
-      console.log(newstate);
-      return newstate;
+      return {
+        ...state,
+        cart: { items: [action.payload], price: action.payload.amt },
+      };
+    case "CANCEL_ORDER":
+      return { ...state, cart: {} };
     default:
       return state;
   }

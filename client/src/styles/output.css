@@ -420,14 +420,32 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex {
   display: flex;
 }
+.grid {
+  display: grid;
+}
+.h-20 {
+  height: 5rem;
+}
 .min-h-screen {
   min-height: 100vh;
+}
+.w-1 {
+  width: 0.25rem;
+}
+.max-w-screen-md {
+  max-width: 768px;
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
 }
 .flex-col {
   flex-direction: column;
+}
+.place-content-stretch {
+  place-content: stretch;
 }
 .items-center {
   align-items: center;
@@ -440,13 +458,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden {
   overflow: hidden;
-}
-.border-b-4 {
-  border-bottom-width: 4px;
-}
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(226 232 240 / var(--tw-border-opacity));
 }
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
@@ -463,13 +474,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.align-middle {
+  vertical-align: middle;
+}
+.font-bold {
+  font-weight: 700;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 10px 10px -5px var(--tw-shadow-color);
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-sm {
@@ -485,19 +502,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 :root {
-  --gap: 16px;
-  --content-gap: 8px;
-  --nav-width: 1280px;
-  --main-width: 1280px;
-  --header-height: 60px;
-  --footer-height: 60px;
-  --radius: 8px;
-  --gray: #ddd;
-  --card-bg: #eeeeee;
 }
+
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 80%;
+  margin: 0 auto;
 }
 h2 {
   font-size: 20pt;
@@ -509,41 +518,6 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 2px;
-}
-.toppings li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.toppings li * {
-  width: 100px;
-}
-
-.order-container {
-  width: 300px;
-  padding-left: %50;
-  padding-right: %50;
-  /* background-color: var(--gray); */
-}
-.order_list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 8px;
-}
-.order_type {
-  border-radius: 2px;
-  background-color: var(--card-bg);
-}
-.order_type img {
-  padding: 4px;
-}
-.order_button {
-  background-color: var(--gray);
-  border-radius: 6px;
-  padding-left: 4px;
-  color: #555;
-  line-height: 1em;
 }
 .overlay {
   z-index: 98;
