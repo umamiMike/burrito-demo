@@ -1,0 +1,4 @@
+.gitattributes !filter !diff
+client/firebase.json filter=git-crypt diff=git-crypt
+client/.firebase/** filter=git-crypt diff=git-crypt
+client/.firebaserc filter=git-crypt diff=git-crypt
