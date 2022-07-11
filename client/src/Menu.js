@@ -8,10 +8,10 @@ import { FakeImage } from "./FakeImage";
 // array of toppings
 // create set of toppings from all orders in list
 
-export const Menus = () => {
+export const Menu = () => {
   const ctx = useContext(AppContext);
 
-  const MenuCards = () => {
+  const MenuItemCards = () => {
     return ctx.stateValue.order_types.map((order) => {
       const key = guid();
 
@@ -36,7 +36,7 @@ export const Menus = () => {
     <div className="flex-row items-center justify-start ">
       <Splash className="" props={ctx.stateValue} />
       <div className="flex-row border border-black">
-        <MenuCards />
+        <MenuItemCards />
       </div>
       {ctx.stateValue.cart.items && <Modal />}
     </div>
