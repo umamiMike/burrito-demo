@@ -411,9 +411,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.relative {
-  position: relative;
-}
 .top-0 {
   top: 0;
 }
@@ -423,20 +420,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid {
   display: grid;
 }
-.h-20 {
-  height: 5rem;
-}
-.min-h-screen {
-  min-height: 100vh;
-}
 .w-1 {
   width: 0.25rem;
 }
-.max-w-screen-md {
-  max-width: 768px;
-}
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -458,6 +446,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
@@ -502,10 +494,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 :root {
+  max-width: 640px;
 }
 
 body {
-  width: 80%;
+  /* width: 50%; */
   margin: 0 auto;
 }
 h2 {
@@ -531,7 +524,7 @@ h2 {
   justify-content: center;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .modal {
