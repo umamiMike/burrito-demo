@@ -4,7 +4,7 @@ export const Splash = (ctx) => {
     <div className="top-0 flex-row bg-gray-100 shadow-sm max-w-half">
       <h2>{ctx.props.shop_name}</h2>
       {ctx.props.shop_description}
-      <OrderImage args={{ name: "mexican", w: 900, h: 200 }} />
+      <OrderImage args={{ name: "sombrero", w: 800, h: 200 }} />
     </div>
   );
 };
