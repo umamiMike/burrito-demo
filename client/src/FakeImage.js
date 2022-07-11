@@ -10,12 +10,12 @@ export const FakeImage = (props) => {
 };
 
 export const OrderImage = (props) => {
-  let { name, l, w } = props.args;
+  let { name, w, h } = props.args;
   return (
     <img
       className="order-img"
       alt="alt"
-      src={`https://fakeimg.pl/${l}x${w}/444/ddd/?text=${name} image`}
+      src={`https://loremflickr.com/${w}/${h}/${name}`}
     />
   );
 };

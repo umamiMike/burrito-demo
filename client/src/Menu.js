@@ -2,17 +2,14 @@ import { useContext, useState } from "react";
 import { guid } from "./utils";
 import AppContext from "./AppContext";
 import { Splash } from "./Splash";
-import { Modal } from "./components/Modal";
-import { FakeImage } from "./FakeImage";
-
-// array of toppings
-// create set of toppings from all orders in list
+import { OrderModal } from "./components/OrderModal";
+import { OrderImage } from "./FakeImage";
 
 export const Menu = () => {
   const ctx = useContext(AppContext);
 
   const MenuItemCards = () => {
-    return ctx.stateValue.order_types.map((order) => {
+    return ctx.stateValue.menu_items.map((order) => {
       const key = guid();
 
       return (
@@ -23,7 +20,7 @@ export const Menu = () => {
             ctx.stateDispatch({ type: "START_ORDER", payload: order });
           }}
         >
-          <FakeImage args={{ name: order.name, l: 64, w: 64 }} />
+          <OrderImage key={guid} args={{ name: order.name, w: 120, h: 65 }} />
           <div className="w-1 font-bold"> {order.name}</div>
           <div className="order-description"> {order.description}</div>
           <div className="align-">${order.amt}</div>
@@ -38,7 +35,7 @@ export const Menu = () => {
       <div className="flex-row border border-black">
         <MenuItemCards />
       </div>
-      {ctx.stateValue.cart.items && <Modal />}
+      {ctx.stateValue.cart.items && <OrderModal />}
     </div>
   );
 };

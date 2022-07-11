@@ -4,7 +4,7 @@ import AppContext from "../AppContext";
 const Topping = ({ name }) => {
   return <div>{name}</div>;
 };
-export const Modal = () => {
+export const OrderModal = () => {
   const ctx = useContext(AppContext);
   return (
     <div key="555" className="overlay">
