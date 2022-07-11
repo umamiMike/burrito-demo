@@ -15,7 +15,7 @@ export const Menu = () => {
       return (
         <div
           key={key}
-          className="items-center align-middle shadow-md grid grid-cols-4 place-content-stretch rounded-xl"
+          className="bg-gray-200 gap-2 grid grid-cols-4 place-content-stretch rounded-xl"
           onClick={() => {
             ctx.stateDispatch({ type: "START_ORDER", payload: order });
           }}
@@ -30,9 +30,9 @@ export const Menu = () => {
   };
 
   return (
-    <div className="flex-row items-center justify-start ">
+    <div className="items-center grid gap-4 ">
       <Splash className="" props={ctx.stateValue} />
-      <div className="flex-row border border-black">
+      <div className="border border-black grid gap-2">
         <MenuItemCards />
       </div>
       {ctx.stateValue.cart.items && <OrderModal />}

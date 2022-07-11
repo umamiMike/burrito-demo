@@ -1,10 +1,9 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TOPPING":
-      return {
-        ...state,
-        cart: [action.item],
-      };
+      let acart = state.cart;
+      console.log(acart);
+      return state;
     case "START_ORDER":
       console.log("order started");
       console.log(action.payload);
