@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { guid } from "./utils";
 import AppContext from "./AppContext";
 import { Splash } from "./Splash";

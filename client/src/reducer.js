@@ -12,8 +12,6 @@ export const reducer = (state, action) => {
     case "REMOVE_TOPPING":
       return state;
     case "ADD_TOPPING":
-      let acart = state.cart;
-      console.log(acart);
       return state;
     case "CANCEL_ORDER":
       return { ...state, cart: {} };
