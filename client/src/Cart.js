@@ -8,7 +8,7 @@ export const Cart = () => {
     ? "$" + ctx.stateValue.cart.price.toFixed(2)
     : "";
   return (
-    <div className="grid grid-cols-4">
+    <div className="fixed top-0 right-0 w-64 h-screen p-4 bg-gray-200">
       Cart
       <div className="font-bold"></div>
       {price}

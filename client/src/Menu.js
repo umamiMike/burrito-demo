@@ -9,7 +9,7 @@ export const Menu = () => {
   const ctx = useContext(AppContext);
 
   const MenuItemCards = () => {
-    return ctx.stateValue.menu_items.map((order) => {
+    return ctx.stateValue.menu_items.map((menu_item) => {
       const key = guid();
 
       return (
@@ -17,13 +17,16 @@ export const Menu = () => {
           key={key}
           className="bg-gray-200 gap-2 grid grid-cols-4 place-content-stretch rounded-xl"
           onClick={() => {
-            ctx.stateDispatch({ type: "START_ORDER", payload: order });
+            ctx.stateDispatch({ type: "START_ORDER", payload: menu_item });
           }}
         >
-          <OrderImage key={guid} args={{ name: order.name, w: 120, h: 65 }} />
-          <div className="w-1 font-bold"> {order.name}</div>
-          <div className="order-description"> {order.description}</div>
-          <div className="align-">${order.amt}</div>
+          <OrderImage
+            key={guid}
+            args={{ name: menu_item.name, w: 120, h: 65 }}
+          />
+          <div className="w-1 font-bold"> {menu_item.name}</div>
+          <div className="order-description"> {menu_item.description}</div>
+          <div className="align-">${menu_item.amt}</div>
         </div>
       );
     });
@@ -32,7 +35,7 @@ export const Menu = () => {
   return (
     <div className="items-center grid gap-4 ">
       <Splash className="" props={ctx.stateValue} />
-      <div className="border border-black grid gap-2">
+      <div className="grid gap-2">
         <MenuItemCards />
       </div>
       {ctx.stateValue.cart.items && <OrderModal />}
