@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { OrderImage } from "../FakeImage";
 import { guid } from "../utils";
 import AppContext from "../AppContext";
@@ -6,10 +6,35 @@ import { Checkbox } from "./Checkbox";
 
 const Topping = ({ topping }) => {
   let { name, amt, selected } = topping;
+  const ctx = useContext(AppContext);
+  const [isChecked, setChecked] = useState(false);
+  const handleChange = (e) => {
+    // e.preventDefault();
+    console.log(isChecked);
+    // setChecked(!isChecked);
+  };
+
+  function ADD() {
+    return ctx.stateDispatch({
+      type: "ADD_TOPPING",
+      payload: { value: amt, name: name },
+    });
+  }
+  const REMOVE = () => {
+    return ctx.stateDispatch({
+      type: "REMOVE_TOPPING",
+      payload: { value: amt, name: name },
+    });
+  };
   return (
     <div className="grid grid-cols-4">
       <div>
-        <Checkbox value={amt} name={name} />
+        <Checkbox
+          checked={isChecked}
+          onChange={handleChange}
+          value={amt}
+          name={name}
+        />
       </div>
       <div>{name}</div>
       <div>{amt} </div>
