@@ -9,16 +9,16 @@ const Topping = ({ topping }) => {
   const ctx = useContext(AppContext);
   const [isChecked, setChecked] = useState(false);
   const handleChange = (e) => {
-    // e.preventDefault();
-    console.log(isChecked);
-    // setChecked(!isChecked);
-  };
-
-  function ADD() {
-    return ctx.stateDispatch({
+    // // e.preventDefault();
+    ctx.stateDispatch({
       type: "ADD_TOPPING",
       payload: { value: amt, name: name },
     });
+    console.log(ctx.stateValue.selected);
+  };
+
+  function FOO() {
+    console.log("foooooooo is function");
   }
   const REMOVE = () => {
     return ctx.stateDispatch({

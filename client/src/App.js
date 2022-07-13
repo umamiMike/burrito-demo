@@ -7,6 +7,7 @@ import { Cart } from "./Cart";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, base_state);
+  console.log(state);
   return (
     <AppContext.Provider value={{ stateValue: state, stateDispatch: dispatch }}>
       <div className="flex ">

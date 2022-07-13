@@ -23,6 +23,6 @@ export const base_state = {
       ],
     },
   ],
-  selected: {},
+  selected: { price: 0.0, toppings: [] },
   cart: {},
 };
