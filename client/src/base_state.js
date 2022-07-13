@@ -9,6 +9,7 @@ export const base_state = {
       amt: 5.99,
       toppings: [
         { name: "sour cream", amt: 1.99, selected: false },
+        { name: "extra cheese", amt: 0.99, selected: false },
         { name: "guac", amt: 3.99, selected: false },
       ],
     },
@@ -22,5 +23,6 @@ export const base_state = {
       ],
     },
   ],
+  selected: {},
   cart: {},
 };

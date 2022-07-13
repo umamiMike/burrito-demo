@@ -23,9 +23,9 @@ export const Menu = () => {
           <OrderImage
             key={guid}
             name={menu_item.name}
-            w={200}
-            h={200}
-            styles="w-24 h-auto rounded-md shadow rounded max-w-full h-auto align-middle border-none"
+            w={64}
+            h={32}
+            styles=" align-middle border-none"
           />
           <div className="text-xl font-bold "> {menu_item.name}</div>
           <div className="order-description"> {menu_item.description}</div>
@@ -41,7 +41,7 @@ export const Menu = () => {
       <div className="grid gap-2">
         <MenuItemCards />
       </div>
-      {ctx.stateValue.cart.items && <OrderModal />}
+      {ctx.stateValue.selected.name && <OrderModal />}
     </div>
   );
 };

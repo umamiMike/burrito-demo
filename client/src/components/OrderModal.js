@@ -8,31 +8,33 @@ const Topping = ({ topping }) => {
   let { name, amt, selected } = topping;
   return (
     <div className="grid grid-cols-4">
-      <OrderImage args={{ name: name, w: 64, h: 64 }} />
-
+      <div>
+        <Checkbox value={amt} name={name} />
+      </div>
       <div>{name}</div>
       <div>{amt} </div>
-      <div>
-        <Checkbox value={amt} />
-      </div>
     </div>
   );
 };
 
 export const OrderModal = () => {
   const ctx = useContext(AppContext);
+  const selected = ctx.stateValue.menu_items.find(
+    (el) => el.name === ctx.stateValue.selected.name
+  );
   return (
     <div key="555" className="overlay">
-      <div className="modal">
-        <button
-          className="modal-close"
-          type="button"
-          onClick={() => ctx.stateDispatch({ type: "CANCEL_ORDER" })}
-        >
-          x
-        </button>
-        <div className="modal-body grid gap-2">
-          {ctx.stateValue.cart.items[0].toppings.map((t) => (
+      <div className="overflow-scroll bg-gray-100 shadow-md modal">
+        <div className=" h-1/2 grid gap-2 rounded-md border-bottom">
+          <button
+            className="w-[32px] uppercase rounded-full bg-emerald-500"
+            type="button"
+            onClick={() => ctx.stateDispatch({ type: "CANCEL_ORDER" })}
+          >
+            x
+          </button>
+          <OrderImage name="splash" w="300" h="100" />
+          {selected.toppings.map((t) => (
             <Topping key={guid()} topping={t} />
           ))}
         </div>

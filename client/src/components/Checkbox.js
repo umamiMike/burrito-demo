@@ -1,18 +1,33 @@
 import { useState, useContext } from "react";
 import AppContext from "../AppContext";
 
-export const Checkbox = (value) => {
+export const Checkbox = (props) => {
+  let { name, value } = props;
   const ctx = useContext(AppContext);
-  const [isChecked, setIsChecked] = useState(false);
+  let isChecked = false;
+
+  const handleChange = () => {
+    if (isChecked === true) {
+      ctx.stateDispatch({
+        type: "ADD_TOPPING",
+        payload: { value: value, name: name },
+      });
+    } else {
+      ctx.stateDispatch({
+        type: "REMOVE_TOPPING",
+        payload: { value: value, name: name },
+      });
+    }
+    isChecked = !isChecked;
+  };
+
   return (
     <input
       type="checkbox"
       value={value}
       checked={isChecked}
       onChange={(e) => {
-        console.log(value);
-        ctx.stateDispatch({ type: "ADD_TOPPING", payload: { value: "bar" } });
-        setIsChecked(!isChecked);
+        handleChange();
       }}
     />
   );

@@ -9,7 +9,7 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, base_state);
   return (
     <AppContext.Provider value={{ stateValue: state, stateDispatch: dispatch }}>
-      <div className="flex">
+      <div className="flex ">
         <Menu />
         <Cart />
       </div>
