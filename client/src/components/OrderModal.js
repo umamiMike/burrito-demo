@@ -8,33 +8,25 @@ const Topping = ({ topping }) => {
   let { name, amt, selected } = topping;
   const ctx = useContext(AppContext);
   const [isChecked, setChecked] = useState(false);
-  const handleChange = (e) => {
-    // // e.preventDefault();
-    ctx.stateDispatch({
-      type: "ADD_TOPPING",
-      payload: { value: amt, name: name },
-    });
-    console.log(ctx.stateValue.selected);
+
+  const handleChange = () => {
+    if (isChecked) {
+      ctx.stateDispatch({
+        type: "ADD_TOPPING",
+        payload: { value: amt, name: name },
+      });
+    } else {
+      ctx.stateDispatch({
+        type: "REMOVE_TOPPING",
+        payload: { value: amt, name: name },
+      });
+    }
   };
 
-  function FOO() {
-    console.log("foooooooo is function");
-  }
-  const REMOVE = () => {
-    return ctx.stateDispatch({
-      type: "REMOVE_TOPPING",
-      payload: { value: amt, name: name },
-    });
-  };
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-4 border-b-[1px] border-solid border-gray-400">
       <div>
-        <Checkbox
-          checked={isChecked}
-          onChange={handleChange}
-          value={amt}
-          name={name}
-        />
+        <input type="checkbox" checked={isChecked} onChange={handleChange} />
       </div>
       <div>{name}</div>
       <div>{amt} </div>
@@ -49,7 +41,7 @@ export const OrderModal = () => {
   );
   return (
     <div key="555" className="overlay">
-      <div className="overflow-scroll bg-gray-100 shadow-md modal">
+      <div className="overflow-y-scroll bg-gray-100 shadow-md scrollbar modal">
         <div className=" h-1/2 grid gap-2 rounded-md border-bottom">
           <button
             className="w-[32px] uppercase rounded-full bg-emerald-500"
@@ -58,9 +50,9 @@ export const OrderModal = () => {
           >
             x
           </button>
-          <OrderImage name="splash" w="300" h="100" />
+          <OrderImage name="item splash" w="300" h="100" />
           {selected.toppings.map((t) => (
-            <Topping key={guid()} topping={t} />
+            <Topping className="" key={guid()} topping={t} />
           ))}
         </div>
       </div>

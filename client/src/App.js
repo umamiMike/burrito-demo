@@ -4,16 +4,17 @@ import AppContext from "./AppContext";
 import { reducer } from "./reducer";
 import { useReducer } from "react";
 import { Cart } from "./Cart";
+import { Splash } from "./Splash";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, base_state);
-  console.log(state);
   return (
     <AppContext.Provider value={{ stateValue: state, stateDispatch: dispatch }}>
-      <div className="flex ">
+      <div className="flex-row space-y-8">
+        <Splash className="" props={state} />
         <Menu />
-        <Cart />
       </div>
+      <Cart />
     </AppContext.Provider>
   );
 };

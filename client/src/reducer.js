@@ -14,10 +14,10 @@ export const reducer = (state, action) => {
     case "REMOVE_MENU_ITEM":
       return state;
     case "ADD_TOPPING":
+      console.log("add topping");
       let theseToppings = state.selected.toppings
         ? state.selected.toppings
         : [];
-      console.log(theseToppings);
       return {
         ...state,
         selected: {
@@ -27,15 +27,22 @@ export const reducer = (state, action) => {
         },
       };
     case "REMOVE_TOPPING":
+      console.log("remove topping");
+      let filteredToppings = state.selected.toppings.filter(
+        (el) => el != action.payload.name
+      );
+
       return {
         ...state,
         selected: {
+          ...state.selected,
           name: state.selected.name,
           price: state.selected.price - action.payload.value,
+          toppings: filteredToppings,
         },
       };
     case "CANCEL_ORDER":
-      return { ...state, cart: {} };
+      return { ...state, selected: {}, cart: {} };
     default:
       return state;
   }

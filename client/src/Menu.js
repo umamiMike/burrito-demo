@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { guid } from "./utils";
 import AppContext from "./AppContext";
-import { Splash } from "./Splash";
 import { OrderModal } from "./components/OrderModal";
 import { OrderImage } from "./FakeImage";
 
@@ -37,7 +36,6 @@ export const Menu = () => {
 
   return (
     <div className="items-center grid gap-4 ">
-      <Splash className="" props={ctx.stateValue} />
       <div className="grid gap-2">
         <MenuItemCards />
       </div>
