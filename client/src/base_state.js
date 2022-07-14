@@ -14,6 +14,16 @@ export const base_state = {
       ],
     },
     {
+      name: "chicken burrito",
+      description: "a yummy deep fried chickeny delight",
+      amt: 6.99,
+      toppings: [
+        { name: "sour cream", amt: 1.99 },
+        { name: "extra cheese", amt: 0.99 },
+        { name: "guac", amt: 3.99 },
+      ],
+    },
+    {
       name: "taco",
       description: "shredded beef or chicken with cheese and salsa",
       amt: 8.0,

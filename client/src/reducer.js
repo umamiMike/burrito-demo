@@ -7,6 +7,7 @@ export const reducer = (state, action) => {
           ...state.selected,
           name: action.payload.name,
           price: action.payload.amt,
+          toppings: [],
         },
       };
     case "ADD_MENU_ITEM":
