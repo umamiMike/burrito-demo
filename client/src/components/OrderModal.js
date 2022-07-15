@@ -3,6 +3,7 @@ import { OrderImage } from "../FakeImage";
 import { guid } from "../utils";
 import AppContext from "../AppContext";
 import { Topping } from "./Topping";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export const OrderModal = () => {
   const ctx = useContext(AppContext);
@@ -21,19 +22,20 @@ export const OrderModal = () => {
 
   return (
     <div key="555" className="overlay">
-      <div className="flex-row overflow-y-scroll bg-gray-100 shadow-md scrollbar modal">
-        <div className=" h-1/2 grid gap-2 rounded-md border-bottom max-h-20">
+      <div className="flex-row  bg-gray-100 shadow-md overflow-hidden  ">
+        <div className="">
           <button
-            className="p-1 h-fit w-fit uppercase rounded-full bg-emerald-500"
+            className="p-1 w-5 h-5 uppercase "
             type="button"
             onClick={() => ctx.stateDispatch({ type: "CANCEL_ORDER" })}
           >
-            x
+            <IoIosCloseCircleOutline size="20px" />
           </button>
         </div>
-        <OrderImage name={splashname} w="600" h="300" />
 
-        <div>
+        <OrderImage name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
+
+        <div className="grid gap-4">
           <Toppings />
         </div>
       </div>
