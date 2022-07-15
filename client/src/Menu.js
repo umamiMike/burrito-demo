@@ -27,15 +27,15 @@ export const Menu = () => {
             styles="align-middle border-none"
           />
           <div className="text-xl font-bold "> {menu_item.name}</div>
-          <div className="order-description"> {menu_item.description}</div>
-          <div className="align-">${menu_item.amt}</div>
+          <div className="item-description"> {menu_item.description}</div>
+          <div className="item-amt align-">${menu_item.amt}</div>
         </div>
       );
     });
   };
 
   return (
-    <div className="overflow-y-scroll items-center grid gap-4 ">
+    <div className="overflow-auto overflow-y-scroll items-center grid gap-4 mx-20 ">
       <MenuItemCards />
       {ctx.stateValue.selected.name && <OrderModal />}
     </div>

@@ -40,6 +40,8 @@ export const reducer = (state, action) => {
           toppings: filteredToppings,
         },
       };
+    case "ADD_TO_CART":
+      return { ...state, cart: state.selected, selected: {} };
     case "CANCEL_ORDER":
       return { ...state, selected: {}, cart: {} };
     default:

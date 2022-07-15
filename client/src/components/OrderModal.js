@@ -32,12 +32,19 @@ export const OrderModal = () => {
             <IoIosCloseCircleOutline size="20px" />
           </button>
         </div>
-
         <OrderImage name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
-
         <div className="grid gap-4">
           <Toppings />
         </div>
+        <button
+          className=""
+          onClick={() => {
+            ctx.stateDispatch({ type: "ADD_TO_CART" });
+          }}
+        >
+          add to cart
+        </button>
+        DD
       </div>
     </div>
   );
