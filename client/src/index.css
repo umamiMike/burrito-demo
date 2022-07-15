@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  @apply max-w-screen-md;
+  /* @apply max-w-screen-md; */
 }
 
 body {
-  width: 80%;
+  /* width: 80%; */
   margin: 0 auto;
 }
 h2 {

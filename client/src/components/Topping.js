@@ -2,7 +2,6 @@ import AppContext from "../AppContext";
 import { useContext, useState } from "react";
 
 export const Topping = ({ topping }) => {
-  console.log(topping);
   let { name, amt, selected } = topping;
   const ctx = useContext(AppContext);
   const [isChecked, setChecked] = useState(false);
@@ -27,7 +26,7 @@ export const Topping = ({ topping }) => {
     }).length != 0
       ? true
       : false;
-  console.log(toppings);
+  console.log(ctx.stateValue.selected);
 
   return (
     <div className="grid grid-cols-4 border-b-[1px] border-solid border-gray-400">

@@ -10,8 +10,8 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, base_state);
   return (
     <AppContext.Provider value={{ stateValue: state, stateDispatch: dispatch }}>
-      <div className="flex-row space-y-8">
-        <Splash className="" props={state} />
+      <div className="max-w-screen-xl ml-4 items-center justify-center flex-row space-y-8">
+        <Splash className="max-w-xl" props={state} />
         <Menu />
       </div>
       <Cart />

@@ -14,7 +14,7 @@ export const Menu = () => {
       return (
         <div
           key={key}
-          className="items-center bg-gray-200 gap-2 grid grid-cols-4 place-content-stretch rounded-md"
+          className="h-24  max-w-screen-md items-center bg-gray-200 gap-2 grid grid-cols-4 place-content-stretch rounded-md"
           onClick={() => {
             ctx.stateDispatch({ type: "START_ORDER", payload: menu_item });
           }}
@@ -22,9 +22,9 @@ export const Menu = () => {
           <OrderImage
             key={guid}
             name={menu_item.name}
-            w={64}
-            h={32}
-            styles=" align-middle border-none"
+            w={100}
+            h={72}
+            styles="align-middle border-none"
           />
           <div className="text-xl font-bold "> {menu_item.name}</div>
           <div className="order-description"> {menu_item.description}</div>

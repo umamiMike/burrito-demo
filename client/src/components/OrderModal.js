@@ -16,21 +16,26 @@ export const OrderModal = () => {
       return <Topping key={guid()} topping={t} />;
     });
   };
+  const splashname = `${selected.name} %0A splash image %0A `;
+  console.log(splashname);
 
   return (
     <div key="555" className="overlay">
-      <div className="overflow-y-scroll bg-gray-100 shadow-md scrollbar modal">
-        <div className=" h-1/2 grid gap-2 rounded-md border-bottom">
+      <div className="flex-row overflow-y-scroll bg-gray-100 shadow-md scrollbar modal">
+        <div className=" h-1/2 grid gap-2 rounded-md border-bottom max-h-20">
           <button
-            className="w-[32px] uppercase rounded-full bg-emerald-500"
+            className="p-1 h-fit w-fit uppercase rounded-full bg-emerald-500"
             type="button"
             onClick={() => ctx.stateDispatch({ type: "CANCEL_ORDER" })}
           >
             x
           </button>
-          <OrderImage name="item splash" w="300" h="100" />
         </div>
-        <Toppings />
+        <OrderImage name={splashname} w="600" h="300" />
+
+        <div>
+          <Toppings />
+        </div>
       </div>
     </div>
   );
