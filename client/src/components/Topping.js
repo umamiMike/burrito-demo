@@ -29,7 +29,7 @@ export const Topping = ({ topping }) => {
   console.log(ctx.stateValue.selected);
 
   return (
-    <div className="grid grid-cols-4 border-b-[1px] border-solid border-gray-400">
+    <div className="h-10 place-items-center  topping-row grid gap-4 grid-cols-4 border-b-[1px] border-solid border-gray-400">
       <div>
         <input type="checkbox" checked={exists} onChange={handleChange} />
       </div>

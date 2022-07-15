@@ -35,10 +35,8 @@ export const Menu = () => {
   };
 
   return (
-    <div className="items-center grid gap-4 ">
-      <div className="grid gap-2">
-        <MenuItemCards />
-      </div>
+    <div className="overflow-y-scroll items-center grid gap-4 ">
+      <MenuItemCards />
       {ctx.stateValue.selected.name && <OrderModal />}
     </div>
   );

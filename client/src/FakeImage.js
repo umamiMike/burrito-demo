@@ -14,9 +14,8 @@ export const OrderImage = (props) => {
   return (
     <div className={`${styles} `}>
       <img
-        alt="alt"
+        alt={name}
         src={`https://fakeimg.pl/${w}x${h}/aaa/ddd/?text=${name} ${w} x ${h}`}
-        // src={`https://loremflickr.com/${w * 4}/${h * 4}/${name}`}
       />
     </div>
   );

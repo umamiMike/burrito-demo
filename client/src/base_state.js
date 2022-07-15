@@ -37,6 +37,21 @@ export const base_state = {
         { name: "grilled onions", amt: 0.95 },
       ],
     },
+    {
+      name: "taco extreme",
+      description:
+        " a whole bunch of shredded beef or chicken with cheese and salsa",
+      amt: 8.0,
+      toppings: [
+        { name: "sour cream", amt: 1.99 },
+        { name: "rice and beans", amt: 2.99 },
+        { name: "chilis", amt: 2.95 },
+        { name: "grilled onions", amt: 0.95 },
+        { name: "grilled red onions", amt: 0.95 },
+        { name: "extra dope cheese", amt: 0.95 },
+        { name: "grilled onions", amt: 0.95 },
+      ],
+    },
   ],
   selected: { price: 0.0, toppings: [] },
   cart: {},
