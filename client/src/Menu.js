@@ -14,28 +14,32 @@ export const Menu = () => {
       return (
         <div
           key={key}
-          className="h-24  max-w-screen-md items-center bg-gray-200 gap-2 grid grid-cols-4 place-content-stretch rounded-md"
+          className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
           onClick={() => {
             ctx.stateDispatch({ type: "START_ORDER", payload: menu_item });
           }}
         >
+          <div className="p-4">
+            <div className="text-xl font-bold "> {menu_item.name}</div>
+            <div className="item-description"> {menu_item.description}</div>
+            <div className="border-solid border-l-[2px]  item-amt justify-self-end ">
+              ${menu_item.amt}
+            </div>
+          </div>
           <OrderImage
             key={guid}
             name={menu_item.name}
-            w={100}
-            h={72}
-            styles="align-middle border-none"
+            w={120}
+            h={120}
+            styles="border-none overflow-clip justify-self-end rounded-md"
           />
-          <div className="text-xl font-bold "> {menu_item.name}</div>
-          <div className="item-description"> {menu_item.description}</div>
-          <div className="item-amt align-">${menu_item.amt}</div>
         </div>
       );
     });
   };
 
   return (
-    <div className="overflow-auto overflow-y-scroll items-center grid gap-4 mx-20 ">
+    <div className="grid md:grid-cols-2 gap-4 mx-20 ">
       <MenuItemCards />
       {ctx.stateValue.selected.name && <OrderModal />}
     </div>
