@@ -33,18 +33,17 @@ export const OrderModal = () => {
           </button>
         </div>
         <OrderImage name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
-        <div className="grid gap-4">
+        <div className="grid  gap-2 w-full">
           <Toppings />
         </div>
         <button
-          className=""
+          className="bg-orange-300 rounded-full px-4 font-bold m-2"
           onClick={() => {
             ctx.stateDispatch({ type: "ADD_TO_CART" });
           }}
         >
           add to cart
         </button>
-        DD
       </div>
     </div>
   );

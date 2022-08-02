@@ -1,10 +1,9 @@
 import AppContext from "../AppContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 export const Topping = ({ topping }) => {
   let { name, amt, selected } = topping;
   const ctx = useContext(AppContext);
-  const [isChecked, setChecked] = useState(false);
   const toppings = ctx.stateValue.selected.toppings;
 
   const handleChange = () => {
@@ -22,19 +21,19 @@ export const Topping = ({ topping }) => {
   };
   let exists =
     toppings.filter((t) => {
-      return t == name;
-    }).length != 0
+      return t === name;
+    }).length !== 0
       ? true
       : false;
   console.log(ctx.stateValue.selected);
 
   return (
-    <div className="h-10 place-items-center  topping-row grid gap-4 grid-cols-4 border-b-[1px] border-solid border-gray-400">
+    <div className="mx-4 topping-row grid grid-cols-3 border-b-[1px] border-solid border-gray-400">
       <div>
         <input type="checkbox" checked={exists} onChange={handleChange} />
       </div>
       <div>{name}</div>
-      <div>{amt} </div>
+      <div className="justify-self-end">${amt} </div>
     </div>
   );
 };

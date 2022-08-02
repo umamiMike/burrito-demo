@@ -6,8 +6,8 @@ export const Splash = (ctx) => {
         <h2 className="">{ctx.props.shop_name}</h2>
         <div className="font-bold">{ctx.props.shop_description}</div>
       </div>
-      <div className="max-h-32 overflow-hidden">
-        <OrderImage name="shop name" w="1280" h="100" />
+      <div className=" ">
+        <OrderImage name={ctx.props.shop_name} w="1280" h="200" />
       </div>
     </div>
   );
