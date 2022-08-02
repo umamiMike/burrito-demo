@@ -7,9 +7,9 @@ export const Cart = () => {
   const visible = cart.toppings ? "bottom-0" : " -bottom-1/4";
   let price = cart.price ? "$" + cart.price.toFixed(2) : "";
   const toppingsMessage = () => {
-    console.log(cart.toppings.join(", "));
-    console.log(cart.toppings.join(", ").replace(/, ^$/gi, "foo"));
-    return cart.toppings.join(", ").match(/,\s*([^,]+)$/);
+    return cart.toppings
+      .join(", ")
+      .replace(/,*([^,]+)$/, ` and ${cart.toppings[cart.toppings.length - 1]}`);
   };
   const toppings = () => {
     if (cart.toppings) {
