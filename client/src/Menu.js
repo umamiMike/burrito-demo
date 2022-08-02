@@ -39,7 +39,7 @@ export const Menu = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 mx-20 ">
+    <div className="grid md:grid-cols-2 md:mx-8 gap-4 mx-4  transition-all duration-200">
       <MenuItemCards />
       {ctx.stateValue.selected.name && <OrderModal />}
     </div>
