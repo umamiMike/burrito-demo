@@ -1,4 +1,4 @@
-export FakeImage = function(props) {
+export function FakeImage(props) {
   let { name, l, w } = props.args;
   return (
     <img
@@ -7,9 +7,9 @@ export FakeImage = function(props) {
       src={`https://fakeimg.pl/${l}x${w}/444/ddd/?text=${name} image`}
     />
   );
-};
+}
 
-export  OrderImage = function(props) {
+export function OrderImage(props) {
   let { name, w, h, styles } = props;
   return (
     <div className={`${styles} `}>
@@ -19,4 +19,4 @@ export  OrderImage = function(props) {
       />
     </div>
   );
-};
+}
