@@ -15,9 +15,6 @@ export const reducer = (state, action) => {
     case "REMOVE_MENU_ITEM":
       return state;
     case "ADD_TOPPING":
-      let theseToppings = state.selected.toppings
-        ? state.selected.toppings
-        : [];
       return {
         ...state,
         selected: {
@@ -28,7 +25,7 @@ export const reducer = (state, action) => {
       };
     case "REMOVE_TOPPING":
       let filteredToppings = state.selected.toppings.filter(
-        (el) => el != action.payload.name
+        (el) => el !== action.payload.name
       );
 
       return {

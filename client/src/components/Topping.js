@@ -2,7 +2,7 @@ import AppContext from "../AppContext";
 import { useContext } from "react";
 
 export const Topping = ({ topping }) => {
-  let { name, amt, selected } = topping;
+  let { name, amt } = topping;
   const ctx = useContext(AppContext);
   const toppings = ctx.stateValue.selected.toppings;
 
