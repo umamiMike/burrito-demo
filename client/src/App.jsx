@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { Menu } from './Menu';
 import baseState from './baseState';
 import AppContext from './AppContext';

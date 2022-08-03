@@ -1,4 +1,4 @@
-export default const baseState = {
+export default {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
   shop_description: 'A festive place to eat your foods',

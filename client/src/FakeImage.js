@@ -1,4 +1,4 @@
-export const FakeImage = (props) => {
+export FakeImage = function(props) {
   let { name, l, w } = props.args;
   return (
     <img
@@ -9,7 +9,7 @@ export const FakeImage = (props) => {
   );
 };
 
-export const OrderImage = (props) => {
+export  OrderImage = function(props) {
   let { name, w, h, styles } = props;
   return (
     <div className={`${styles} `}>

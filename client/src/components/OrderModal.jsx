@@ -1,24 +1,19 @@
-import { useContext } from "react";
-import { OrderImage } from "../FakeImage";
-import { guid } from "../utils";
-import AppContext from "../AppContext";
-import { Topping } from "./Topping";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import React, { useContext } from 'react';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { OrderImage } from '../FakeImage';
+import { guid } from '../utils';
+import AppContext from '../AppContext';
+import { Topping } from './Topping';
 
-export const OrderModal = () => {
+export default function OrderModal() {
   const ctx = useContext(AppContext);
 
   const selected = ctx.stateValue.menu_items.find(
-    (el) => el.name === ctx.stateValue.selected.name
+    (el) => el.name === ctx.stateValue.selected.name,
   );
 
-  const Toppings = () => {
-    return selected.toppings.map((t) => {
-      return <Topping key={guid()} topping={t} />;
-    });
-  };
+  const Toppings = () => selected.toppings.map((t) => <Topping key={guid()} topping={t} />);
   const splashname = `${selected.name} %0A splash image %0A `;
-  console.log(splashname);
 
   return (
     <div key="555" className="overlay">
@@ -27,7 +22,7 @@ export const OrderModal = () => {
           <button
             className="p-1 w-5 h-5 uppercase "
             type="button"
-            onClick={() => ctx.stateDispatch({ type: "CANCEL_ORDER" })}
+            onClick={() => ctx.stateDispatch({ type: 'CANCEL_ORDER' })}
           >
             <IoIosCloseCircleOutline size="20px" />
           </button>
@@ -37,9 +32,10 @@ export const OrderModal = () => {
           <Toppings />
         </div>
         <button
+          type="submit"
           className="bg-orange-300 rounded-full px-4 font-bold m-2"
           onClick={() => {
-            ctx.stateDispatch({ type: "ADD_TO_CART" });
+            ctx.stateDispatch({ type: 'ADD_TO_CART' });
           }}
         >
           add to cart
@@ -47,4 +43,4 @@ export const OrderModal = () => {
       </div>
     </div>
   );
-};
+}

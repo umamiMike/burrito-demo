@@ -1,6 +1,9 @@
-export const reducer = (state, action) => {
+function reducer(state, action) {
+  const filteredToppings = state.selected.toppings.filter(
+    (el) => el !== action.payload.name,
+  );
   switch (action.type) {
-    case "START_ORDER":
+    case 'START_ORDER':
       return {
         ...state,
         selected: {
@@ -10,11 +13,11 @@ export const reducer = (state, action) => {
           toppings: [],
         },
       };
-    case "ADD_MENU_ITEM":
+    case 'ADD_MENU_ITEM':
       return state;
-    case "REMOVE_MENU_ITEM":
+    case 'REMOVE_MENU_ITEM':
       return state;
-    case "ADD_TOPPING":
+    case 'ADD_TOPPING':
       return {
         ...state,
         selected: {
@@ -23,11 +26,7 @@ export const reducer = (state, action) => {
           toppings: [...state.selected.toppings, `${action.payload.name}`],
         },
       };
-    case "REMOVE_TOPPING":
-      let filteredToppings = state.selected.toppings.filter(
-        (el) => el !== action.payload.name
-      );
-
+    case 'REMOVE_TOPPING':
       return {
         ...state,
         selected: {
@@ -37,11 +36,12 @@ export const reducer = (state, action) => {
           toppings: filteredToppings,
         },
       };
-    case "ADD_TO_CART":
+    case 'ADD_TO_CART':
       return { ...state, cart: state.selected, selected: {} };
-    case "CANCEL_ORDER":
+    case 'CANCEL_ORDER':
       return { ...state, selected: {}, cart: {} };
     default:
       return state;
   }
-};
+}
+export default reducer;
