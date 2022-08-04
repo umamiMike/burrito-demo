@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function FakeImage(props) {
   const { name, l, w } = props.args;
   return (

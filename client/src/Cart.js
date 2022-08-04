@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import AppContext from './AppContext';
 
 export function Cart() {
@@ -25,7 +25,7 @@ export function Cart() {
       <div className="border-b-[1px] border-gray-400 border-solid ">Cart</div>
       <div className="font-bold" />
       <p>{toppings()}</p>
-      <button className="text-white bg-yellow-500 rounded-full px-4 py-2 font-bold">
+      <button type="button" className="text-white bg-yellow-500 rounded-full px-4 py-2 font-bold">
         place your order
       </button>
     </div>
