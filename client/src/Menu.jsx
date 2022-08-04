@@ -9,12 +9,11 @@ export default function Menu() {
 
   const MenuItemCards = () => ctx.stateValue.menu_items.map((menuItem) => {
     const key = guid();
+    console.log(key);
 
     return (
-      <div
-        role="presentation"
-        key={key}
-        className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
+      <button
+        type="submit"
         onKeyPress={() => {
           ctx.stateDispatch({ type: 'START_ORDER', payload: menuItem });
         }}
@@ -22,28 +21,33 @@ export default function Menu() {
           ctx.stateDispatch({ type: 'START_ORDER', payload: menuItem });
         }}
       >
-        <div className="p-4">
-          <div className="text-xl font-bold ">
-            {' '}
-            {menuItem.name}
+        <div
+          key={key.toString()}
+          className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
+        >
+
+          <div className="p-4">
+            <div className="text-xl font-bold ">
+              {' '}
+              {menuItem.name}
+            </div>
+            <div className="item-description">
+              {' '}
+              {menuItem.description}
+            </div>
+            <div className="border-solid border-l-[2px]  item-amt justify-self-end ">
+              $
+              {menuItem.amt}
+            </div>
           </div>
-          <div className="item-description">
-            {' '}
-            {menuItem.description}
-          </div>
-          <div className="border-solid border-l-[2px]  item-amt justify-self-end ">
-            $
-            {menuItem.amt}
-          </div>
+          <OrderImage
+            name={menuItem.name}
+            w={120}
+            h={120}
+            styles="border-none overflow-clip justify-self-end rounded-md"
+          />
         </div>
-        <OrderImage
-          key={guid}
-          name={menuItem.name}
-          w={120}
-          h={120}
-          styles="border-none overflow-clip justify-self-end rounded-md"
-        />
-      </div>
+      </button>
     );
   });
 
