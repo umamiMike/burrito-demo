@@ -12,7 +12,7 @@ export default function Menu() {
 
     return (
       <div
-        role="mouse"
+        role="presentation"
         key={key}
         className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
         onKeyPress={() => {
