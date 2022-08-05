@@ -9,7 +9,6 @@ export default function Menu() {
 
   const MenuItemCards = () => ctx.stateValue.menu_items.map((menuItem) => {
     const key = guid();
-    console.log(key);
 
     return (
       <div

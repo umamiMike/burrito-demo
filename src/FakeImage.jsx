@@ -4,7 +4,6 @@ export default function OrderImage(props) {
   const {
     image, name, w, h, styles,
   } = props;
-  console.log('image for the menu item is: ', name, image, w, h, styles);
   return (
     <div className={`${styles} `}>
       <img

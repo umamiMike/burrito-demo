@@ -3,7 +3,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import OrderImage from '../FakeImage';
 import { guid } from '../utils';
 import AppContext from '../AppContext';
-import { Topping } from './Topping';
+import Topping from './Topping';
 
 export default function OrderModal() {
   const ctx = useContext(AppContext);

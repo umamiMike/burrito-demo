@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ['build/'],
   env: {
     browser: true,
     es2021: true,
@@ -19,5 +20,5 @@ module.exports = {
   ],
   rules: {
   },
-  root: true
+  root: true,
 };
