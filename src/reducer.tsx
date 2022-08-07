@@ -1,6 +1,6 @@
-function reducer(state, action) {
+function reducer(state: any, action: any) {
   const filteredToppings = state.selected.toppings.filter(
-    (el) => el !== action.payload.name,
+    (el: any) => el !== action.payload.name,
   );
   switch (action.type) {
     case 'START_ORDER':

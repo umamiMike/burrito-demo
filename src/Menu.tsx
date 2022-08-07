@@ -5,9 +5,9 @@ import OrderModal from './components/OrderModal';
 import OrderImage from './FakeImage';
 
 export default function Menu() {
-  const ctx = useContext(AppContext);
+  const ctx: any = useContext(AppContext);
 
-  const MenuItemCards = () => ctx.stateValue.menu_items.map((menuItem) => {
+  const MenuItemCards = () => ctx.stateValue.menu_items.map((menuItem: any) => {
     const key = guid();
 
     return (

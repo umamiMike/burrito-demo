@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Splash(ctx) {
+export default function Splash(ctx: any) {
   const { props } = ctx;
   console.log(props);
   return (

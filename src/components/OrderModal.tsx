@@ -6,13 +6,13 @@ import AppContext from '../AppContext';
 import Topping from './Topping';
 
 export default function OrderModal() {
-  const ctx = useContext(AppContext);
+  const ctx: any  = useContext(AppContext);
 
   const selected = ctx.stateValue.menu_items.find(
-    (el) => el.name === ctx.stateValue.selected.name,
+    (el: any) => el.name === ctx.stateValue.selected.name,
   );
 
-  const Toppings = () => selected.toppings.map((t) => <Topping key={guid()} topping={t} />);
+  const Toppings = () => selected.toppings.map((t: any) => <Topping key={guid()} topping={t} />);
   const splashname = `${selected.name} %0A splash image %0A `;
 
   return (

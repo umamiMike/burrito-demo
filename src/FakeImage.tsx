@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function OrderImage(props) {
+export default function OrderImage(props: any) {
   const {
     image, name, w, h, styles,
   } = props;
