@@ -9,7 +9,7 @@ import Splash from './Splash';
 function App() {
   const [state, dispatch] = useReducer(reducer, baseState);
   return (
-    <AppContext.Provider value={{ stateValue: baseState  , stateDispatch: dispatch }}>
+    <AppContext.Provider value={{ stateValue: baseState, stateDispatch: dispatch }}>
       <div className="max-w-screen-xl items-center justify-center flex-row space-y-8">
         <Splash props={state} />
         <Menu />

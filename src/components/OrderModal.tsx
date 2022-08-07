@@ -6,7 +6,7 @@ import AppContext from '../AppContext';
 import Topping from './Topping';
 
 export default function OrderModal() {
-  const ctx: any  = useContext(AppContext);
+  const ctx: any = useContext(AppContext);
 
   const selected = ctx.stateValue.menu_items.find(
     (el: any) => el.name === ctx.stateValue.selected.name,

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import AppContext from '../AppContext';
 
-export default function Topping({ topping }: any ) {
-  const { name, amt  } = topping;
+export default function Topping({ topping }: any) {
+  const { name, amt } = topping;
   const ctx: any = useContext(AppContext);
   const { toppings } = ctx.stateValue.selected;
   const exists = toppings.filter((t: any) => t === name).length !== 0;
