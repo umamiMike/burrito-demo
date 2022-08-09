@@ -1,5 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 import Menu from './Menu';
+import AppContext, { AppContextProvider } from './AppContext';
+
 import reducer from './reducer';
 import Cart from './Cart';
 import Splash from './Splash';
@@ -69,13 +71,13 @@ function App() {
   const AppContext = createContext(baseState);
   const [state, dispatch] = useReducer(reducer, baseState);
   return (
-    <AppContext.Provider value={baseState}>
-      <div className="max-w-screen-xl items-center justify-center flex-row space-y-8">
+    <AppContextProvider value={baseState}>
+      <div className="flex-row items-center justify-center max-w-screen-xl space-y-8">
         <Splash props={state} />
         <Menu />
       </div>
       <Cart />
-    </AppContext.Provider>
+    </AppContextProvider>
   );
 }
 
