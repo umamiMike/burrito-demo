@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import OrderImage from '../FakeImage';
-import { guid } from '../utils';
+import guid from '../guid';
 import AppContext from '../AppContext';
 import Topping from './Topping';
 

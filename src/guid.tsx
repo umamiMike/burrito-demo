@@ -7,6 +7,4 @@ function guid() {
   return s4() + s4();
 }
 
-export default function utils() {}
-
-export { guid };
+export default guid;

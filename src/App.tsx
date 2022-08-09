@@ -1,6 +1,6 @@
-import React, { useReducer, createContext } from 'react';
+import React, { useReducer } from 'react';
 import Menu from './Menu';
-import AppContext, { AppContextProvider } from './AppContext';
+import { AppContextProvider } from './AppContext';
 
 import reducer from './reducer';
 import Cart from './Cart';
@@ -68,10 +68,9 @@ function App() {
     cart: {},
   };
 
-  const AppContext = createContext(baseState);
   const [state, dispatch] = useReducer(reducer, baseState);
   return (
-    <AppContextProvider value={baseState}>
+    <AppContextProvider>
       <div className="flex-row items-center justify-center max-w-screen-xl space-y-8">
         <Splash props={state} />
         <Menu />
