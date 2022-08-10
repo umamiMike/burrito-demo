@@ -1,21 +1,22 @@
-import React, { useContext } from 'react';
-import AppContext from './AppContext';
+import React, { useContext } from "react";
+import AppContext from "./AppContext";
 
 function Cart() {
   const ctx: any = useContext(AppContext);
   const { cart } = ctx.stateValue;
-  const visible = cart.toppings ? 'bottom-0' : ' -bottom-1/4';
-  const price = cart.price ? `$${cart.price.toFixed(2)}` : '';
-  const toppingsMessage = () => cart.toppings
-    .join(', ')
-    .replace(/,*([^,]+)$/, ` and ${cart.toppings[cart.toppings.length - 1]}`);
+  const visible = cart.toppings ? "bottom-0" : " -bottom-1/4";
+  const price = cart.price ? `$${cart.price.toFixed(2)}` : "";
+  const toppingsMessage = () =>
+    cart.toppings
+      .join(", ")
+      .replace(/,*([^,]+)$/, ` and ${cart.toppings[cart.toppings.length - 1]}`);
   const toppings = () => {
     if (cart.toppings) {
       const message = `You are ordering a ${ctx.stateValue.cart.name}
         with  ${toppingsMessage()} for   ${price}`;
       return message;
     }
-    return ' ';
+    return " ";
   };
 
   return (
@@ -27,7 +28,7 @@ function Cart() {
       <p>{toppings()}</p>
       <button
         type="submit"
-        className="text-white bg-yellow-500 rounded-full px-4 py-2 font-bold"
+        className="px-4 py-2 font-bold text-white bg-yellow-500 rounded-full"
       >
         place your order
       </button>
