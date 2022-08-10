@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, Dispatch } from 'react';
-import AppReducer from 'AppReducer';
+import reducer from './reducer';
 import baseState from './baseState';
 
 type Topping = {
@@ -21,17 +21,22 @@ type App = {
   selected: { price: number; toppings: Topping[] };
 };
 
-type AppContextProviderProps = {
-  children: React.ReactNode;
-  reducer: React.Reducer;
-};
-const AppContext = createContext(baseState);
+const AppContext = createContext<{
+  state: App;
+  dispatch: Dispatch<App>;
+}>({
+  state: baseState,
+  dispatch: () => null,
+});
 
-const [state, dispatch] = useReducer(AppReducer, baseState);
-export function AppContextProvider({ children }: AppContextProviderProps) {
+const AppProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, baseState);
+
   return (
-    <AppContext.Provider value={{state, dispatch}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ state, dispatch }}>
+      {children}
+    </AppContext.Provider>
   );
-}
+};
 
-export default AppContext;
+export { AppContext, AppProvider };
