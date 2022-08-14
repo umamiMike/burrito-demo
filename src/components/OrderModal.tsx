@@ -44,3 +44,4 @@ const OrderModal = () => {
     </div>
   );
 };
+export default OrderModal;

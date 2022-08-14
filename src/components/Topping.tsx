@@ -34,3 +34,4 @@ const Topping = ({ topping }: any) => {
     </div>
   );
 };
+export default Topping;

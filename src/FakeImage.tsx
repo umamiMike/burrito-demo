@@ -1,6 +1,6 @@
 import React from 'react';
+
 type orderImageProps = {
-  image: string;
   name: string;
   w: number;
   h: number;
@@ -8,7 +8,7 @@ type orderImageProps = {
 }
 const OrderImage = (props: orderImageProps) => {
   const {
-    image, name, w, h, styles,
+    name, w, h, styles,
   } = props;
   return (
     <div className={`${styles} `}>

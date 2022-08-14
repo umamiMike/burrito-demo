@@ -1,8 +1,3 @@
-type Topping = {
-  name: string;
-  amt: string;
-};
-
 // src/cartReducer.ts
 const reducer = () => {
   const filteredToppings = state.selected.toppings.filter(
