@@ -1,4 +1,10 @@
-function reducer(state: any, action: any) {
+type Topping = {
+  name: string;
+  amt: string;
+};
+
+// src/cartReducer.ts
+const reducer = () => {
   const filteredToppings = state.selected.toppings.filter(
     (el: any) => el !== action.payload.name,
   );
@@ -36,12 +42,8 @@ function reducer(state: any, action: any) {
           toppings: filteredToppings,
         },
       };
-    case 'ADD_TO_CART':
-      return { ...state, cart: state.selected, selected: {} };
-    case 'CANCEL_ORDER':
-      return { ...state, selected: {}, cart: {} };
     default:
       return state;
   }
-}
+};
 export default reducer;

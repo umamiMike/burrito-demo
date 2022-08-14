@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import AppContext from '../AppContext';
 
-export default function Topping({ topping }: any) {
+const Topping = ({ topping }: any) => {
   const { name, amt } = topping;
   const ctx: any = useContext(AppContext);
   const { toppings } = ctx.stateValue.selected;
@@ -33,4 +33,4 @@ export default function Topping({ topping }: any) {
       </div>
     </div>
   );
-}
+};

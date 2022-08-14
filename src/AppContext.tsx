@@ -1,42 +1,46 @@
-import React, { createContext, useReducer, Dispatch } from 'react';
+import React, {
+  useMemo, createContext, useReducer, Dispatch,
+} from 'react';
+import {
+  App, Shop,
+} from './types';
 import reducer from './reducer';
-import baseState from './baseState';
 
-type Topping = {
-  name: string;
-  amt: string;
-};
-type MenuItem = {
-  name: string;
-  description: string;
-  amt: number;
-  toppings: Topping[];
+const shopData = {
+  name: 'Casa de Miguel',
+  splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
+  description: 'A festive place to eat your foods',
 };
 
-type App = {
-  shop_name: string;
-  shop_splash_img: string;
-  shop_description: string;
-  menu_items: MenuItem[];
-  selected: { price: number; toppings: Topping[] };
-};
-
-const AppContext = createContext<{
-  state: App;
+const ShopContext = createContext<{
+  state: Shop;
   dispatch: Dispatch<App>;
 }>({
-  state: baseState,
+  state: shopData,
   dispatch: () => null,
 });
 
-const AppProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, baseState);
+export type Cart = { price: number; toppings: Topping[] };
 
+const cart: Cart = { price: 0, toppings: [] };
+
+export const CartContext = createContext<{
+  state: Cart
+  dispatch: Dispatch<Cart>;
+}>({
+  state: cart,
+  dispatch: () => null,
+});
+
+const ShopProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, shopData);
+
+  const memoState = useMemo(() => ({ state, dispatch }), []);
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <ShopContext.Provider value={memoState}>
       {children}
-    </AppContext.Provider>
+    </ShopContext.Provider>
   );
 };
 
-export { AppContext, AppProvider };
+export { ShopContext, ShopProvider };

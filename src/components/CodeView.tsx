@@ -3,7 +3,7 @@ import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import React, { useContext } from 'react';
 import AppContext from '../AppContext';
 
-function CodeView() {
+const CodeView = () => {
   const ctx:any = useContext(AppContext);
   return (
     <div className="code">
@@ -12,6 +12,6 @@ function CodeView() {
       </SyntaxHighlighter>
     </div>
   );
-}
+};
 
-export { CodeView };
+export default CodeView;

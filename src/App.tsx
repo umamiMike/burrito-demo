@@ -1,20 +1,15 @@
-import React from "react";
-import Menu from "./Menu";
-import { AppProvider, AppContext } from "./AppContext";
+import React from 'react';
+import { ShopProvider } from './AppContext';
 
-import Cart from "./Cart";
-import Splash from "./Splash";
+import Splash from './Splash';
 
-function App() {
-  return (
-    <AppProvider>
-      <div className="flex-row items-center justify-center max-w-screen-xl space-y-8">
-        {/*   <Splash /> */}
-        {/*   <Menu /> */}
-      </div>
-      {/* <Cart /> */}
-    </AppProvider>
-  );
-}
+const App: React.FC = () => (
+  <ShopProvider>
+    <div className="flex-row items-center justify-center max-w-screen-xl space-y-8">
+      <Splash />
+    </div>
+    {/* <Cart /> */}
+  </ShopProvider>
+);
 
 export default App;

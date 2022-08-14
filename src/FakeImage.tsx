@@ -1,6 +1,12 @@
 import React from 'react';
-
-export default function OrderImage(props: any) {
+type orderImageProps = {
+  image: string;
+  name: string;
+  w: number;
+  h: number;
+  styles: string;
+}
+const OrderImage = (props: orderImageProps) => {
   const {
     image, name, w, h, styles,
   } = props;
@@ -12,4 +18,5 @@ export default function OrderImage(props: any) {
       />
     </div>
   );
-}
+};
+export default OrderImage;
