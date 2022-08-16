@@ -1,4 +1,31 @@
-const baseState = {
+type Topping = {
+  name: string;
+  amt: number;
+};
+
+type MenuItem = {
+  name: string;
+  amt: number;
+  description: string;
+  toppings: Topping[];
+};
+
+type SelectedType = {
+  price: number;
+  toppings: Topping[];
+  name: string;
+};
+
+export type State = {
+  shop_name: string;
+  shop_splash_img: string;
+  shop_description: string;
+  menu_items: MenuItem[];
+  selected: SelectedType;
+  cart: SelectedType;
+};
+
+const baseState: State = {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
   shop_description: 'A festive place to eat your foods',
@@ -53,8 +80,8 @@ const baseState = {
       ],
     },
   ],
-  selected: { price: 0.0, toppings: [] },
-  cart: {},
+  selected: { price: 0.0, toppings: [], name: '' },
+  cart: { price: 0.0, toppings: [], name: '' },
 };
 
 export default baseState;
