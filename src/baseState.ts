@@ -25,7 +25,7 @@ export type State = {
   cart: SelectedType;
 };
 
-const baseState: State = {
+export const baseState: State = {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
   shop_description: 'A festive place to eat your foods',
