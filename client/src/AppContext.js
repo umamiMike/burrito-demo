@@ -1,6 +1,6 @@
-import { createContext } from "react";
-import { base_state } from "./base_state";
+import { createContext } from 'react';
+import baseState from './baseState';
 
-const AppContext = createContext(base_state);
+const AppContext = createContext(baseState);
 
 export default AppContext;

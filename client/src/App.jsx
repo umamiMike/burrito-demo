@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { Menu } from './Menu';
 import baseState from './baseState';
 import AppContext from './AppContext';
@@ -6,6 +6,7 @@ import { reducer } from './reducer';
 import { Cart } from './Cart';
 import { Splash } from './Splash';
 
+/* eslint-disable react/jsx-no-constructed-context-values */
 function App() {
   const [state, dispatch] = useReducer(reducer, baseState);
   return (

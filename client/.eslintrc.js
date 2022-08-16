@@ -5,6 +5,14 @@ module.exports = {
     es2021: true,
   },
   extends: ['plugin:react/recommended', 'airbnb'],
+  rules: {
+    'import/prefer-default-export': 'off',
+    'no-case-declarations': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'ts', 'tsx'] }],
+    'react/prop-types': 'off',
+    'no-console': 'off',
+    'react/destructuring-assignment": 'off'
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -13,5 +21,4 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {},
 };

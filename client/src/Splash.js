@@ -1,5 +1,7 @@
-import { OrderImage } from "./FakeImage";
-export const Splash = (ctx) => {
+import React from 'react';
+import { OrderImage } from './FakeImage';
+
+export function Splash(ctx) {
   return (
     <div className="sticky top-0 flex-row bg-gray-100 shadow-sm ">
       <div className="flex items-center space-x-4">
@@ -11,4 +13,4 @@ export const Splash = (ctx) => {
       </div>
     </div>
   );
-};
+}

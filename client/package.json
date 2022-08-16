@@ -23,7 +23,8 @@
     "build-fire": "npm run watch:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "watch:css": "postcss src/index.css -o src/styles/output.css"
+    "watch:css": "postcss src/index.css -o src/styles/output.css",
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [

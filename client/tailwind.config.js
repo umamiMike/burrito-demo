@@ -1,8 +1,8 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}", "./public/index.html"],
-  prefix: "",
+  content: ['./src/**/*.{html,js}', './public/index.html'],
+  prefix: '',
   important: false,
-  separator: ":",
+  separator: ':',
   theme: {},
   variants: {},
   corePlugins: {},

@@ -1,4 +1,4 @@
-export const Checkbox = (props) => {
-  let { value, checked, onChange } = props;
+export function Checkbox(props) {
+  const { value, checked, onChange } = props;
   return <input type="checkbox" checked={checked} onChange={onChange} />;
-};
+}
