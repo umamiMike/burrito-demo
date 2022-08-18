@@ -1,13 +1,20 @@
 import React, { useContext } from 'react';
-import { guid } from './utils';
 import AppContext from './AppContext';
 import { OrderModal } from './components/OrderModal';
 import { OrderImage } from './FakeImage';
+import type { State } from './baseState.js';
+import { reducer } from './reducer';
+import { guid } from './utils';
 
 export function Menu() {
   const ctx = useContext(AppContext);
+  console.log(ctx);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { state } = ctx;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { dispatch } = ctx;
 
-  const MenuItemCards = () => ctx.stateValue.menu_items.map((menuItem) => {
+  const MenuItemCards = () => ctx.menu_items.map((menuItem) => {
     const key = guid();
 
     return (
@@ -16,7 +23,7 @@ export function Menu() {
         key={key}
         className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
         onClick={() => {
-          ctx.stateDispatch({ type: 'START_ORDER', payload: menuItem });
+          dispatch({ type: 'START_ORDER', payload: menuItem });
         }}
       >
         <div className="p-4">
