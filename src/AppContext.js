@@ -9,11 +9,7 @@ const AppContext = createContext(baseState);
 export const AppProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, baseState);
   const value = { state, dispatch };
-  return (
-    <AppContext.Provider value={value}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 export default AppContext;

@@ -1,9 +1,9 @@
-type Topping = {
+export type Topping = {
   name: string;
   amt: number;
 };
 
-type MenuItem = {
+export type MenuItem = {
   name: string;
   amt: number;
   description: string;
@@ -30,7 +30,7 @@ export type State = {
 
 };
 
-const baseState: State = {
+const baseState: any = {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
   shop_description: 'A festive place to eat your foods',

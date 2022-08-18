@@ -2,19 +2,16 @@ import React, { useContext } from 'react';
 import AppContext from './AppContext';
 import { OrderModal } from './components/OrderModal';
 import { OrderImage } from './FakeImage';
-import type { State } from './baseState.js';
-import { reducer } from './reducer';
 import { guid } from './utils';
 
 export function Menu() {
   const ctx = useContext(AppContext);
   console.log(ctx);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { state } = ctx;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { dispatch } = ctx;
+  const { state, dispatch } = ctx;
 
-  const MenuItemCards = () => ctx.menu_items.map((menuItem) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const MenuItemCards = () => state.menu_items.map((menuItem: any) => {
     const key = guid();
 
     return (
@@ -54,7 +51,7 @@ export function Menu() {
   return (
     <div className="grid md:grid-cols-2 md:mx-8 gap-4 mx-4  transition-all duration-200">
       <MenuItemCards />
-      {ctx.stateValue.selected.name && <OrderModal />}
+      {state.selected.name && <OrderModal />}
     </div>
   );
 }

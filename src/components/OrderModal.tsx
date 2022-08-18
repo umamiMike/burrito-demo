@@ -4,15 +4,17 @@ import { OrderImage } from '../FakeImage';
 import { guid } from '../utils';
 import AppContext from '../AppContext';
 import { Topping } from './Topping';
+import type { MenuItem, Topping as ToppingType } from '../baseState';
 
 export function OrderModal() {
   const ctx = useContext(AppContext);
 
   const selected = ctx.stateValue.menu_items.find(
-    (el) => el.name === ctx.stateValue.selected.name,
+    (el: MenuItem) => el.name === ctx.stateValue.selected.name,
   );
+  // eslint-disable-next-line max-len
+  const Toppings = () => selected.toppings.map((t: ToppingType) => (<Topping key={guid()} topping={t} />));
 
-  const Toppings = () => selected.toppings.map((t) => <Topping key={guid()} topping={t} />);
   const splashname = `${selected.name} %0A splash image %0A `;
   console.log(splashname);
 

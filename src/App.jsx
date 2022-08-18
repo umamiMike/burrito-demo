@@ -1,8 +1,6 @@
 import React, { useReducer } from 'react';
 import { Menu } from './Menu';
-import { baseState } from './baseState';
-import AppContext, { AppProvider } from './AppContext';
-import { reducer } from './reducer';
+import { AppProvider } from './AppContext';
 import { Cart } from './Cart';
 import { Splash } from './Splash';
 
