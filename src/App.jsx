@@ -9,6 +9,7 @@ function App() {
   return (
     <AppProvider>
       <div className="max-w-screen-xl items-center justify-center flex-row space-y-8">
+        <Splash />
         <Menu />
       </div>
       <Cart />

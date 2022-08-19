@@ -5,10 +5,8 @@ import { OrderImage } from './FakeImage';
 import { guid } from './utils';
 
 export function Menu() {
-  const ctx = useContext(AppContext);
-  console.log(ctx);
+  const { state, dispatch } = useContext(AppContext);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { state, dispatch } = ctx;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const MenuItemCards = () => state.menu_items.map((menuItem: any) => {
