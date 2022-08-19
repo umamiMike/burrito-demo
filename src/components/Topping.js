@@ -3,24 +3,24 @@ import AppContext from '../AppContext';
 
 export function Topping({ topping }) {
   const { name, amt } = topping;
-  const ctx = useContext(AppContext);
-  const { toppings } = ctx.stateValue.selected;
+  const { state, dispatch } = useContext(AppContext);
+  const { toppings } = state.selected;
 
   const exists = toppings.filter((t) => t === name).length !== 0;
   const handleChange = () => {
     if (!exists) {
-      ctx.stateDispatch({
+      dispatch({
         type: 'ADD_TOPPING',
         payload: { value: amt, name },
       });
     } else {
-      ctx.stateDispatch({
+      dispatch({
         type: 'REMOVE_TOPPING',
         payload: { value: amt, name },
       });
     }
   };
-  console.log(ctx.stateValue.selected);
+  console.log(state.selected);
 
   return (
     <div className="mx-4 topping-row grid grid-cols-3 border-b-[1px] border-solid border-gray-400">

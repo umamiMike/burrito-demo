@@ -8,7 +8,7 @@ function CodeView() {
   return (
     <div className="code">
       <SyntaxHighlighter language="javascript" style={gruvboxDark}>
-        {JSON.stringify(ctx.stateValue.cart, null, '\t')}
+        {JSON.stringify(state.cart, null, '\t')}
       </SyntaxHighlighter>
     </div>
   );

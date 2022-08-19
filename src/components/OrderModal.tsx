@@ -8,9 +8,10 @@ import type { MenuItem, Topping as ToppingType } from '../baseState';
 
 export function OrderModal() {
   const ctx = useContext(AppContext);
+  const { state, dispatch } = ctx;
 
-  const selected = ctx.stateValue.menu_items.find(
-    (el: MenuItem) => el.name === ctx.stateValue.selected.name,
+  const selected = state.menu_items.find(
+    (el: MenuItem) => el.name === state.selected.name,
   );
   // eslint-disable-next-line max-len
   const Toppings = () => selected.toppings.map((t: ToppingType) => (<Topping key={guid()} topping={t} />));
@@ -25,7 +26,7 @@ export function OrderModal() {
           <button
             className="p-1 w-5 h-5 uppercase "
             type="button"
-            onClick={() => ctx.stateDispatch({ type: 'CANCEL_ORDER' })}
+            onClick={() => dispatch({ type: 'CANCEL_ORDER' })}
           >
             <IoIosCloseCircleOutline size="20px" />
           </button>
@@ -38,7 +39,7 @@ export function OrderModal() {
           type="button"
           className="bg-orange-300 rounded-full px-4 font-bold m-2"
           onClick={() => {
-            ctx.stateDispatch({ type: 'ADD_TO_CART' });
+            dispatch({ type: 'ADD_TO_CART' });
           }}
         >
           add to cart
