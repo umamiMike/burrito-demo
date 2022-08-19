@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { OrderImage } from './FakeImage';
-import AppContext from './AppContext';
+import { AppContext } from './AppContext';
 
 export function Splash() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

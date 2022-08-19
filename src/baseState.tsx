@@ -15,8 +15,7 @@ type SelectedType = {
   toppings: Topping[];
   name: string;
 };
-type StateState = {
-
+export type StateState = {
   shop_name: string;
   shop_splash_img: string;
   shop_description: string;
@@ -30,7 +29,7 @@ export type State = {
 
 };
 
-const baseState: any = {
+export const baseState: StateState = {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
   shop_description: 'A festive place to eat your foods',
@@ -88,5 +87,3 @@ const baseState: any = {
   selected: { price: 0.0, toppings: [], name: '' },
   cart: { price: 0.0, toppings: [], name: '' },
 };
-
-export { baseState };

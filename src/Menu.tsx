@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from './AppContext';
+import { AppContext } from './AppContext';
 import { OrderModal } from './components/OrderModal';
 import { OrderImage } from './FakeImage';
 import { guid } from './utils';

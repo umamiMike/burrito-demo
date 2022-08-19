@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { OrderImage } from '../FakeImage';
 import { guid } from '../utils';
-import AppContext from '../AppContext';
+import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
 import type { MenuItem, Topping as ToppingType } from '../baseState';
 

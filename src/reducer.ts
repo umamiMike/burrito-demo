@@ -1,4 +1,13 @@
-export const reducer = (state, action) => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+import { StateState } from './baseState';
+
+type Action = {
+  type: string;
+  payload: any;
+};
+export const reducer = (state: StateState, action: Action) => {
   switch (action.type) {
     case 'START_ORDER':
       return {
