@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -12,7 +13,7 @@ export const AppContext = createContext<{ state: StateState ; dispatch: any }>({
 });
 
 type HeaderProps = {
-  children: any;
+  children: React.ReactNodeArray;
 };
 
 export const AppProvider: React.FC<PropsWithChildren<HeaderProps>> = ({ children }) => {

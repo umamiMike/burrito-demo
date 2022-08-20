@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { StateState } from './baseState';
+import type { StateState } from './baseState';
 
 type Action = {
-  type: string;
-  payload: any;
+  type: 'START_ORDER' | 'ADD_TO_CART' | 'REMOVE_FROM_CART' | 'CLEAR_CART' | 'ADD_MENU_ITEM' | 'REMOVE_MENU_ITEM' | 'ADD_TOPPING' | 'REMOVE_TOPPING' | 'CANCEL_ORDER' | 'CONFIRM_ORDER' | 'SET_SHOP_NAME' | 'SET_SHOP_SPLASH_IMG';
+  payload: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
+
 export const reducer = (state: StateState, action: Action) => {
   switch (action.type) {
     case 'START_ORDER':
