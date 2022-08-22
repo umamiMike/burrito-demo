@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { StateState } from './baseState';
+import type { StateState, Shop, Cart } from './baseState';
 
 export type Action = {
   type: string;
@@ -17,7 +17,6 @@ export const shopReducer = (state: Shop, action: Action) => {
   }
 };
 // export const fooReducerFn = (state: any, action: any) => {}
-
 
 export const cartReducer = (state: Cart, action: Action) => {
   switch (action.type) {

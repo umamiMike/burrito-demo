@@ -11,9 +11,9 @@ export type MenuItem = {
 };
 
 type SelectedType = {
-  price?: number;
-  toppings?: Topping[];
-  name?: string;
+  price: number;
+  toppings: Topping[];
+  name: string;
 };
 export type StateState = {
   shop_name: string;
@@ -92,13 +92,13 @@ export const menuItems: MenuItem[] = [
     ],
   },
 ];
-type Cart = {
-  selected?: SelectedType;
-  cart?: SelectedType;
+export type Cart = {
+  selected: SelectedType;
+  cart: SelectedType;
 
 };
 
 export const cart: Cart = {
-  selected: {},
-  cart: {},
+  selected: { price: 0, name: '', toppings: [] },
+  cart: { price: 0, name: '', toppings: [] },
 };

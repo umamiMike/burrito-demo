@@ -5,21 +5,20 @@
 import React, { useReducer, createContext, PropsWithChildren } from 'react';
 import { shopReducer } from './reducer';
 import type { StateState, Shop } from './baseState';
-import {  shopInfo } from './baseState';
+import { shopInfo } from './baseState';
 
 type Axion = {
   type: string;
   payload: any;
 };
 export const AppContext = createContext<{ state: Shop ; dispatch: any }>({
-  state,
+  state: shopInfo,
   dispatch: () => null,
 });
 
 type HeaderProps = {
   children: any;
 };
-
 
 export const AppProvider: React.FC<PropsWithChildren<HeaderProps>> = ({ children }) => {
   const [state, dispatch] = useReducer(shopReducer, shopInfo);
