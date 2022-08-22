@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from './AppContext';
 
 export function Cart() {
-  {/* const { state, dispatch } = useContext(AppContext); */}
+  const { state, dispatch } = useContext(AppContext);
   const { cart } = state;
   const visible = cart.toppings ? 'bottom-0' : ' -bottom-1/4';
   const price = cart.price ? `$${cart.price.toFixed(2)}` : '';

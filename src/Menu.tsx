@@ -6,9 +6,6 @@ import { guid } from './utils';
 
 export function Menu() {
   const { state, dispatch } = useContext(AppContext);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const MenuItemCards = () => state.menu_items.map((menuItem: any) => {
     const key = guid();
 
@@ -49,7 +46,7 @@ export function Menu() {
   return (
     <div className="grid md:grid-cols-2 md:mx-8 gap-4 mx-4  transition-all duration-200">
       <MenuItemCards />
-      {state.selected.name && <OrderModal />}
+      {/* {state.selected.name && <OrderModal />} */}
     </div>
   );
 }

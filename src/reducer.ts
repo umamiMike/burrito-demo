@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import type { Shop } from './baseState';
 
 export type Action = {
   type: string;
-  payload: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  payload: any;
 };
 
 export const shopReducer = (state: Shop, action: Action) => {

@@ -3,7 +3,7 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useReducer, createContext, PropsWithChildren } from 'react';
-import { cartReducer, shopReducer } from './reducer';
+import { shopReducer } from './reducer';
 import { shopInfo } from './baseState';
 import type { Shop } from './baseState';
 
