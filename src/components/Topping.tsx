@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../AppContext';
+import type { Topping as ToppingType } from '../baseState';
 
-export function Topping({ topping }) {
+export function Topping(topping: any) {
   const { name, amt } = topping;
   const { state, dispatch } = useContext(AppContext);
   const { toppings } = state.selected;
@@ -20,7 +21,6 @@ export function Topping({ topping }) {
       });
     }
   };
-  console.log(state.selected);
 
   return (
     <div className="mx-4 topping-row grid grid-cols-3 border-b-[1px] border-solid border-gray-400">

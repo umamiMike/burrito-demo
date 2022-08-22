@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { OrderImage } from '../FakeImage';
 import { guid } from '../utils';
@@ -14,9 +15,11 @@ export function OrderModal() {
     (el: MenuItem) => el.name === state.selected.name,
   );
   // eslint-disable-next-line max-len
-  const Toppings = () => selected.toppings.map((t: ToppingType) => (<Topping key={guid()} topping={t} />));
+  const Toppings = selected?.toppings.map((t: ToppingType) => (
+    <Topping key={guid()} topping={t} />
+  ));
 
-  const splashname = `${selected.name} %0A splash image %0A `;
+  const splashname = `${selected?.name} %0A splash image %0A `;
   console.log(splashname);
 
   return (
@@ -33,7 +36,7 @@ export function OrderModal() {
         </div>
         <OrderImage name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
         <div className="grid  gap-2 w-full">
-          <Toppings />
+          { Toppings }
         </div>
         <button
           type="button"

@@ -4,11 +4,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useReducer, createContext, PropsWithChildren } from 'react';
 import { shopReducer } from './reducer';
-import { shopInfo } from './baseState';
 import type { Shop } from './baseState';
+import { menuItems, shopInfo, cart } from './baseState';
+
+const appState = {
+  ...shopInfo,
+  ...cart,
+  menuItems: { menuItems },
+};
 
 export const AppContext = createContext<{ state: Shop ; dispatch: any }>({
-  state: shopInfo,
+  state: appState,
   dispatch: () => null,
 });
 

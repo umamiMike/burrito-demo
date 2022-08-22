@@ -7,12 +7,12 @@ export type MenuItem = {
   name: string;
   amt: number;
   description: string;
-  toppings: Topping[];
+  toppings: Topping[] | [];
 };
 
 type SelectedType = {
   price: number;
-  toppings: Topping[];
+  toppings: Topping[] | [];
   name: string;
 };
 
@@ -20,9 +20,9 @@ export type Shop = {
   shop_name: string;
   shop_splash_img: string;
   shop_description: string;
-  selected: SelectedType;
-  cart: SelectedType;
-  menu_items: MenuItem[];
+  selected: SelectedType | [];
+  cart: SelectedType | [];
+  menu_items: MenuItem[] | [];
 };
 
 export const menuItems: MenuItem[] = [
