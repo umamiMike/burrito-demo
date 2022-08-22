@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { StateState, Shop, Cart } from './baseState';
+import type { Shop } from './baseState';
 
 export type Action = {
   type: string;
@@ -18,7 +18,7 @@ export const shopReducer = (state: Shop, action: Action) => {
 };
 // export const fooReducerFn = (state: any, action: any) => {}
 
-export const cartReducer = (state: Cart, action: Action) => {
+export const cartReducer = (state: Shop, action: Action) => {
   switch (action.type) {
     case 'START_ORDER':
       return {

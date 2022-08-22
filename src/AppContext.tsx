@@ -3,14 +3,10 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useReducer, createContext, PropsWithChildren } from 'react';
-import { shopReducer } from './reducer';
-import type { StateState, Shop } from './baseState';
+import { cartReducer, shopReducer } from './reducer';
 import { shopInfo } from './baseState';
+import type { Shop } from './baseState';
 
-type Axion = {
-  type: string;
-  payload: any;
-};
 export const AppContext = createContext<{ state: Shop ; dispatch: any }>({
   state: shopInfo,
   dispatch: () => null,

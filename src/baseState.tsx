@@ -15,30 +15,14 @@ type SelectedType = {
   toppings: Topping[];
   name: string;
 };
-export type StateState = {
-  shop_name: string;
-  shop_splash_img: string;
-  shop_description: string;
-  menu_items: MenuItem[];
-  selected: SelectedType;
-  cart: SelectedType;
-};
-export type State = {
-  state: StateState;
-  dispatch: React.DispatchWithoutAction;
-
-};
 
 export type Shop = {
   shop_name: string;
   shop_splash_img: string;
   shop_description: string;
-};
-
-export const shopInfo: Shop = {
-  shop_name: 'Casa de Miguel',
-  shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
-  shop_description: 'A festive place to eat your foods',
+  selected: SelectedType;
+  cart: SelectedType;
+  menu_items: MenuItem[];
 };
 
 export const menuItems: MenuItem[] = [
@@ -92,9 +76,19 @@ export const menuItems: MenuItem[] = [
     ],
   },
 ];
+
+export const shopInfo: Shop = {
+  shop_name: 'Casa de Miguel',
+  shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
+  shop_description: 'A festive place to eat your foods',
+  selected: { price: 0, name: '', toppings: [] },
+  cart: { price: 0, name: '', toppings: [] },
+  menu_items: menuItems,
+};
+
 export type Cart = {
-  selected: SelectedType;
-  cart: SelectedType;
+  selected?: SelectedType;
+  cart?: SelectedType;
 
 };
 
