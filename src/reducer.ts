@@ -3,12 +3,23 @@
 
 import type { StateState } from './baseState';
 
-type Action = {
-  type: 'START_ORDER' | 'ADD_TO_CART' | 'REMOVE_FROM_CART' | 'CLEAR_CART' | 'ADD_MENU_ITEM' | 'REMOVE_MENU_ITEM' | 'ADD_TOPPING' | 'REMOVE_TOPPING' | 'CANCEL_ORDER' | 'CONFIRM_ORDER' | 'SET_SHOP_NAME' | 'SET_SHOP_SPLASH_IMG';
+export type Action = {
+  type: string;
   payload: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
-export const reducer = (state: StateState, action: Action) => {
+export const shopReducer = (state: Shop, action: Action) => {
+  switch (action.type) {
+    case 'CANCEL_ORDER':
+      return { ...state };
+    default:
+      return state;
+  }
+};
+// export const fooReducerFn = (state: any, action: any) => {}
+
+
+export const cartReducer = (state: Cart, action: Action) => {
   switch (action.type) {
     case 'START_ORDER':
       return {
