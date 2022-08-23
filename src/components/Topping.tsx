@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { AppContext } from '../AppContext';
 import type { Topping as ToppingType } from '../baseState';
 
-export function Topping(topping: any) {
+export function Topping(toppin: any) {
+  const { topping } = toppin;
   const { name, amt } = topping;
   const { state, dispatch } = useContext(AppContext);
   const { toppings } = state.selected;
 
+  // test for existance of  THIS topping
   const exists = toppings.filter((t) => t === name).length !== 0;
   const handleChange = () => {
     if (!exists) {
