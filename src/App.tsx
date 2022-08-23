@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProvider } from './AppContext';
 import { Splash } from './Splash';
-import {Menu} from './Menu';
+import { Menu } from './Menu';
 
 /* eslint-disable react/jsx-no-constructed-context-values */
 function App() {

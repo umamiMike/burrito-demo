@@ -12,7 +12,7 @@ export type MenuItem = {
 
 type SelectedType = {
   price: number;
-  toppings: Topping[] | [];
+  toppings: Topping[] ;
   name: string;
 };
 
@@ -20,8 +20,8 @@ export type Shop = {
   shop_name: string;
   shop_splash_img: string;
   shop_description: string;
-  selected: SelectedType | [];
-  cart: SelectedType | [];
+  selected: SelectedType;
+  cart: SelectedType;
   menu_items: MenuItem[] | [];
 };
 
