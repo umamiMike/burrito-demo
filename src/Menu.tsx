@@ -8,6 +8,7 @@ export function Menu() {
   const { state, dispatch } = useContext(AppContext);
   const MenuItemCards = state.menu_items.map((menuItem: any) => {
     const key = guid();
+    console.log(state.selected);
 
     return (
       <button
@@ -15,7 +16,6 @@ export function Menu() {
         key={key}
         className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
         onClick={() => {
-          console.log('buttonPressed ');
           dispatch({ type: 'START_ORDER', payload: menuItem });
         }}
       >

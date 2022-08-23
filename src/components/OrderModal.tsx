@@ -6,15 +6,13 @@ import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
 import type { MenuItem, Topping as ToppingType } from '../baseState';
 
-function OrderImage(props) {
-  const {
-    name, w, h, styles,
-  } = props;
+function OrderImage(props: any) {
+  const { url, name, styles } = props;
   return (
     <div className={`${styles} `}>
       <img
         alt={name}
-        src={`https://fakeimg.pl/${w}x${h}/aaa/ddd/?text=${name} %0A ${w} x ${h}`}
+        src={url}
       />
     </div>
   );
@@ -33,7 +31,6 @@ export function OrderModal() {
   ));
 
   const splashname = `${selected?.name} %0A splash image %0A `;
-  console.log(splashname);
 
   return (
     <div key="555" className="overlay">
@@ -47,7 +44,7 @@ export function OrderModal() {
             <IoIosCloseCircleOutline size="20px" />
           </button>
         </div>
-        <OrderImage name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
+        <OrderImage url="https://fakeimg.pl/250x100/" name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
         <div className="grid  gap-2 w-full">
           { Toppings }
         </div>

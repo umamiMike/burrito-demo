@@ -5,7 +5,7 @@ export type Action = {
   payload: any;
 };
 
-const emptyCart = { name: ' ', price: 0, toppings: [' '] };
+const emptyCart = { name: '', price: 0, toppings: [] };
 
 export const shopReducer = (state: Shop, action: Action) => {
   switch (action.type) {
@@ -15,6 +15,12 @@ export const shopReducer = (state: Shop, action: Action) => {
         selected: action.payload,
       };
       return n;
+      break;
+    case 'CANCEL_ORDER':
+      console.log('cancelling order');
+      console.log(state);
+      const con: Shop = { ...state, selected: emptyCart, cart: emptyCart };
+      return con;
       break;
     default:
       return state;
