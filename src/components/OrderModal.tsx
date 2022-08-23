@@ -1,11 +1,24 @@
 import React, { useContext } from 'react';
 
 import { IoIosCloseCircleOutline } from 'react-icons/io';
-import { OrderImage } from '../FakeImage';
 import { guid } from '../utils';
 import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
 import type { MenuItem, Topping as ToppingType } from '../baseState';
+
+function OrderImage(props) {
+  const {
+    name, w, h, styles,
+  } = props;
+  return (
+    <div className={`${styles} `}>
+      <img
+        alt={name}
+        src={`https://fakeimg.pl/${w}x${h}/aaa/ddd/?text=${name} %0A ${w} x ${h}`}
+      />
+    </div>
+  );
+}
 
 export function OrderModal() {
   const ctx = useContext(AppContext);
