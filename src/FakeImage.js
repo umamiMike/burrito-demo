@@ -12,7 +12,6 @@ export function FakeImage(props) {
 }
 
 export function OrderImage(props) {
-  console.log('order image run');
   const {
     name, w, h, styles,
   } = props;

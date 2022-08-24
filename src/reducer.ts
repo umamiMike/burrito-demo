@@ -12,29 +12,29 @@ export const shopReducer = (state: Shop, action: Action) => {
     case 'START_ORDER':
       const n: Shop = {
         ...state,
-        selected: action.payload,
+        selected: { ...action.payload, toppings: [] },
       };
+      console.log('new state after starting order', n);
       return n;
       break;
     case 'ADD_TOPPING':
       // if checked add the string
       // if checked and exists in array remove string from array
-      console.log(action.payload);
-      console.log('toppins');
-      // console.log(...state.selected.toppings);
+
+      return {
+        ...state,
+        selected: {
+          ...state.selected,
+          toppings: state.selected.toppings.concat([action.payload.name]),
+        },
+      };
+      break;
+    case 'REMOVE_TOPPING':
+
+      console.log('remove topping ');
       return state;
-      // return {
-      //   ...state,
-      //   selected: {
-      //     ...state.selected,
-      //     price: state.selected.price + action.payload.value,
-      //     toppings: [...state.selected.toppings.concat([action.payload.name])],
-      //   },
-      // };
       break;
     case 'CANCEL_ORDER':
-      console.log('cancelling order');
-      console.log(state);
       const con: Shop = { ...state, selected: emptyCart, cart: emptyCart };
       return con;
       break;

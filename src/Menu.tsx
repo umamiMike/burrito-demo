@@ -8,7 +8,6 @@ export function Menu() {
   const { state, dispatch } = useContext(AppContext);
   const MenuItemCards = state.menu_items.map((menuItem: any) => {
     const key = guid();
-    console.log(state.selected);
 
     return (
       <button
