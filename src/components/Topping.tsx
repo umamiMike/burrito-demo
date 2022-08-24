@@ -16,6 +16,7 @@ export function Topping(toppin: any) {
         type: 'ADD_TOPPING',
         payload: { value: amt, name },
       });
+      console.log(state.selected);
     } else {
       dispatch({
         type: 'REMOVE_TOPPING',

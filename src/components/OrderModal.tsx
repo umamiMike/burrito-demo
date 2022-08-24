@@ -44,7 +44,9 @@ export function OrderModal() {
             <IoIosCloseCircleOutline size="20px" />
           </button>
         </div>
-        <OrderImage url="https://fakeimg.pl/250x100/" name={splashname} w="600" h="140" styles="p-4 rounded-lg" />
+        { OrderImage({
+          name: splashname, url: 'https://fakeimg.pl/320x120/', w: '600', h: '140', styles: 'p-4-rounded-lg',
+        })}
         <div className="grid  gap-2 w-full">
           { Toppings }
         </div>

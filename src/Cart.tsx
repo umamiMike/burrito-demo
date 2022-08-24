@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { AppContext } from './AppContext';
 
 export function Cart() {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const { cart } = state;
   const visible = cart.toppings ? 'bottom-0' : ' -bottom-1/4';
   const price = cart.price ? `$${cart.price.toFixed(2)}` : '';
-  const toppingsMessage = () => cart.toppings
+  const toppingsMessage = () => cart.toppings.map((t) => t.name)
     .join(', ')
     .replace(/,*([^,]+)$/, ` and ${cart.toppings[cart.toppings.length - 1]}`);
   const toppings = () => {

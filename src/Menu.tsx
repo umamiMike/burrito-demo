@@ -3,10 +3,11 @@ import { AppContext } from './AppContext';
 import { OrderModal } from './components/OrderModal';
 import { OrderImage } from './FakeImage';
 import { guid } from './utils';
+import type { MenuItem } from './baseState';
 
 export function Menu() {
   const { state, dispatch } = useContext(AppContext);
-  const MenuItemCards = state.menu_items.map((menuItem: any) => {
+  const MenuItemCards = state.menu_items.map((menuItem: MenuItem) => {
     const key = guid();
 
     return (

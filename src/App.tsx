@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProvider } from './AppContext';
 import { Splash } from './Splash';
 import { Menu } from './Menu';
+import { Cart } from './Cart';
 
 /* eslint-disable react/jsx-no-constructed-context-values */
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Splash />
         <Menu />
       </div>
+      <Cart />
     </AppProvider>
   );
 }
