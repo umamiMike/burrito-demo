@@ -32,7 +32,13 @@ export const shopReducer = (state: Shop, action: Action) => {
     case 'REMOVE_TOPPING':
 
       console.log('remove topping ');
-      return state;
+      return {
+        ...state,
+        selected: {
+          ...state.selected,
+          toppings: state.selected.toppings.filter((t) => t !== action.payload.name),
+        },
+      };
       break;
     case 'CANCEL_ORDER':
       const con: Shop = { ...state, selected: emptyCart, cart: emptyCart };
