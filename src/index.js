@@ -6,7 +6,7 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import './index.css';
+import './styles/output.css';
 
 import App from './App';
 

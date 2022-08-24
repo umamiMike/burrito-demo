@@ -12,9 +12,12 @@ export const shopReducer = (state: Shop, action: Action) => {
     case 'START_ORDER':
       const n: Shop = {
         ...state,
-        selected: { ...action.payload, toppings: [] },
+        selected: {
+          ...action.payload,
+          toppings: [],
+          price: action.payload.amt,
+        },
       };
-      console.log('new state after starting order', n);
       return n;
       break;
     case 'ADD_TOPPING':
@@ -25,6 +28,7 @@ export const shopReducer = (state: Shop, action: Action) => {
         ...state,
         selected: {
           ...state.selected,
+          price: state.selected.price + action.payload.value,
           toppings: state.selected.toppings.concat([action.payload.name]),
         },
       };
@@ -36,9 +40,13 @@ export const shopReducer = (state: Shop, action: Action) => {
         ...state,
         selected: {
           ...state.selected,
+          price: state.selected.price - action.payload.value,
           toppings: state.selected.toppings.filter((t) => t !== action.payload.name),
         },
       };
+      break;
+    case 'ADD_TO_CART':
+      return { ...state, cart: state.selected, selected: { ...emptyCart } };
       break;
     case 'CANCEL_ORDER':
       const con: Shop = { ...state, selected: emptyCart, cart: emptyCart };
