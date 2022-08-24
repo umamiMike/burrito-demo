@@ -6,7 +6,13 @@ import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
 import type { MenuItem, Topping as ToppingType } from '../baseState';
 
-function OrderImage(props: any) {
+type Image = {
+  name: string;
+  url: string;
+  styles: string;
+};
+
+function OrderImage(props: Image) {
   const { url, name, styles } = props;
   return (
     <div className={`${styles} `}>
@@ -45,7 +51,7 @@ export function OrderModal() {
           </button>
         </div>
         { OrderImage({
-          name: splashname, url: 'https://fakeimg.pl/320x120/', w: '600', h: '140', styles: 'p-4-rounded-lg',
+          name: splashname, url: 'https://fakeimg.pl/320x120/', styles: 'p-4-rounded-lg',
         })}
         <div className="grid  gap-2 w-full">
           { Toppings }
