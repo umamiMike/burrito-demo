@@ -1,4 +1,4 @@
-export type Topping = {
+export type ToppingType = {
   name: string;
   amt: number;
 };
@@ -7,12 +7,12 @@ export type MenuItem = {
   name: string;
   amt: number;
   description: string;
-  toppings: Topping[] | [];
+  toppings: ToppingType[];
 };
 
 type SelectedType = {
   price: number;
-  toppings: Topping[] ;
+  toppings: ToppingType[] ;
   name: string;
 };
 
@@ -22,7 +22,7 @@ export type Shop = {
   shop_description: string;
   selected: SelectedType;
   cart: SelectedType;
-  menu_items: MenuItem[] | [];
+  menu_items: MenuItem[];
 };
 
 export const menuItems: MenuItem[] = [

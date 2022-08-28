@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../AppContext';
-import type { Topping as ToppingType } from '../baseState';
+import type { ToppingType } from '../baseState';
 
 export function Topping(toppin: any) {
   const { topping } = toppin;

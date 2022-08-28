@@ -3,7 +3,6 @@ import { OrderImage } from './FakeImage';
 import { AppContext } from './AppContext';
 
 export function Splash() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { state } = useContext(AppContext);
   return (
     <div className="sticky top-0 flex-row bg-gray-100 shadow-sm ">

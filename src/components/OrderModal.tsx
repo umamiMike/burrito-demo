@@ -4,7 +4,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { guid } from '../utils';
 import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
-import type { MenuItem, Topping as ToppingType } from '../baseState';
+import type { MenuItem, ToppingType } from '../baseState';
 
 type Image = {
   name: string;

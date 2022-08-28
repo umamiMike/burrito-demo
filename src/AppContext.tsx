@@ -19,7 +19,7 @@ export const AppContext = createContext<{ state: Shop ; dispatch: any }>({
 });
 
 type HeaderProps = {
-  children: any;
+  children: React.ReactNode;
 };
 
 export const AppProvider: React.FC<PropsWithChildren<HeaderProps>> = ({ children }) => {
