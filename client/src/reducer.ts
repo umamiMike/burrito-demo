@@ -1,7 +1,7 @@
 import type { Shop } from './baseState';
 
 export type Action = {
-  type: string;
+  type: 'START_ORDER' | 'ADD_TOPPING' | 'REMOVE_TOPPING' | 'CANCEL_ORDER' | 'ADD_TO_CART';
   payload: any;
 };
 
@@ -21,9 +21,6 @@ export const shopReducer = (state: Shop, action: Action) => {
       return n;
       break;
     case 'ADD_TOPPING':
-      // if checked add the string
-      // if checked and exists in array remove string from array
-
       return {
         ...state,
         selected: {
@@ -35,7 +32,6 @@ export const shopReducer = (state: Shop, action: Action) => {
       break;
     case 'REMOVE_TOPPING':
 
-      console.log('remove topping ');
       return {
         ...state,
         selected: {
