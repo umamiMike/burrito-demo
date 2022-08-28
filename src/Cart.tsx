@@ -1,17 +1,19 @@
 import React, { useContext } from 'react';
-import AppContext from './AppContext';
+import { AppContext } from './AppContext';
 
 export function Cart() {
-  const ctx = useContext(AppContext);
-  const { cart } = ctx.stateValue;
-  const visible = cart.toppings ? 'bottom-0' : ' -bottom-1/4';
+  const { state } = useContext(AppContext);
+  const { cart } = state;
+  const visible = cart.toppings.length > 0 ? 'bottom-0' : ' -bottom-1/4';
+  console.log(cart.toppings);
+  console.log(visible);
   const price = cart.price ? `$${cart.price.toFixed(2)}` : '';
-  const toppingsMessage = () => cart.toppings
+  const toppingsMessage = () => cart.toppings.map((t) => t.name)
     .join(', ')
     .replace(/,*([^,]+)$/, ` and ${cart.toppings[cart.toppings.length - 1]}`);
   const toppings = () => {
     if (cart.toppings) {
-      const message = `You are ordering a ${ctx.stateValue.cart.name}
+      const message = `You are ordering a ${cart.name}
         with  ${toppingsMessage()} for   ${price}`;
       return message;
     }

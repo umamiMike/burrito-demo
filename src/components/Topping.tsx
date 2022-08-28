@@ -1,26 +1,29 @@
 import React, { useContext } from 'react';
-import AppContext from '../AppContext';
+import { AppContext } from '../AppContext';
+import type { ToppingType } from '../baseState';
 
-export function Topping({ topping }) {
+export function Topping(toppin: any) {
+  const { topping } = toppin;
   const { name, amt } = topping;
-  const ctx = useContext(AppContext);
-  const { toppings } = ctx.stateValue.selected;
+  const { state, dispatch } = useContext(AppContext);
+  const { toppings } = state.selected;
 
+  // test for existance of  THIS topping
   const exists = toppings.filter((t) => t === name).length !== 0;
   const handleChange = () => {
     if (!exists) {
-      ctx.stateDispatch({
+      dispatch({
         type: 'ADD_TOPPING',
         payload: { value: amt, name },
       });
+      console.log(state.selected);
     } else {
-      ctx.stateDispatch({
+      dispatch({
         type: 'REMOVE_TOPPING',
         payload: { value: amt, name },
       });
     }
   };
-  console.log(ctx.stateValue.selected);
 
   return (
     <div className="mx-4 topping-row grid grid-cols-3 border-b-[1px] border-solid border-gray-400">

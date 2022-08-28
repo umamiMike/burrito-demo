@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import { guid } from './utils';
-import AppContext from './AppContext';
+import { AppContext } from './AppContext';
 import { OrderModal } from './components/OrderModal';
 import { OrderImage } from './FakeImage';
+import { guid } from './utils';
+import type { MenuItem } from './baseState';
 
 export function Menu() {
-  const ctx = useContext(AppContext);
-
-  const MenuItemCards = () => ctx.stateValue.menu_items.map((menuItem) => {
+  const { state, dispatch } = useContext(AppContext);
+  const MenuItemCards = state.menu_items.map((menuItem: MenuItem) => {
     const key = guid();
 
     return (
@@ -16,7 +16,7 @@ export function Menu() {
         key={key}
         className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
         onClick={() => {
-          ctx.stateDispatch({ type: 'START_ORDER', payload: menuItem });
+          dispatch({ type: 'START_ORDER', payload: menuItem });
         }}
       >
         <div className="p-4">
@@ -46,8 +46,8 @@ export function Menu() {
 
   return (
     <div className="grid md:grid-cols-2 md:mx-8 gap-4 mx-4  transition-all duration-200">
-      <MenuItemCards />
-      {ctx.stateValue.selected.name && <OrderModal />}
+      { MenuItemCards }
+      {state.selected.name && <OrderModal />}
     </div>
   );
 }
