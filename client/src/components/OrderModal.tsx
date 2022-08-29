@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
-
+import { useQuery } from '@apollo/client';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { ALL_ITEMS, MUTATE_ITEM } from '../queries';
+
 import { guid } from '../utils';
 import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
@@ -25,6 +27,7 @@ function OrderImage(props: Image) {
 }
 
 export function OrderModal() {
+  const { loading, error, data } = useQuery(ALL_ITEMS);
   const ctx = useContext(AppContext);
   const { state, dispatch } = ctx;
 
@@ -45,7 +48,9 @@ export function OrderModal() {
           <button
             className="p-1 w-5 h-5 uppercase "
             type="button"
-            onClick={() => dispatch({ type: 'CANCEL_ORDER' })}
+            onClick={() => {
+              dispatch({ type: 'CANCEL_ORDER' });
+            }}
           >
             <IoIosCloseCircleOutline size="20px" />
           </button>

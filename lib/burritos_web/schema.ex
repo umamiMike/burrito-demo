@@ -10,6 +10,7 @@ defmodule BurritosWeb.Schema do
     field :name, :string
   end
 
+
   object :items do
     field :items, list_of(:item)
   end
@@ -33,7 +34,7 @@ defmodule BurritosWeb.Schema do
 end
 
 defmodule BurritosWeb.Resolvers.Item do
-  @items [%{id: "foo", name: "Foo"}, %{id: "bar", name: "Bar"}]
+  @items [%{id: "foo", name: "fooobarrrrr"}, %{id: "bar", name: "Bar"}]
 
   def list_items(_parent, _args, _resolution) do
     {:ok, @items}

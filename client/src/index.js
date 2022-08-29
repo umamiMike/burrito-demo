@@ -5,6 +5,8 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
+  useQuery,
+  gql,
 } from '@apollo/client';
 import './styles/output.css';
 
