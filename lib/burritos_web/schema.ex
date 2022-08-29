@@ -10,7 +10,6 @@ defmodule BurritosWeb.Schema do
     field :name, :string
   end
 
-
   object :items do
     field :items, list_of(:item)
   end
