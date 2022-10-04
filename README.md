@@ -1,4 +1,13 @@
-# Burritos
+# Shopping Cart Demo Application WIP
+
+Trivial happy path implementation of a shopping cart client written in Javascript and Elixir. Written as a demo of the technology.
+
+## Features
+- uses Typescript
+- uses React with useReducer() and useContext() hooks
+- Apollo GraphQL client
+- Elixir Poison GraphQL plug
+- uses TailwindCSS for styling
 
 ## Server
 
