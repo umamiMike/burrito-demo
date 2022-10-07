@@ -2,6 +2,8 @@
 
 Trivial happy path implementation of a shopping cart client written in Javascript and Elixir. Written as a demo of the technology.
 
+[hosted here](https://wilding-burrito.web.app/)
+
 ## Features
 - uses Typescript
 - uses React with useReducer() and useContext() hooks
