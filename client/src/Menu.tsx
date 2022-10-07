@@ -35,6 +35,7 @@ export function Menu() {
         </div>
         <OrderImage
           key={guid}
+          image={menuItem.image}
           name={menuItem.name}
           w={120}
           h={120}

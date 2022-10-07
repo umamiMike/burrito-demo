@@ -8,6 +8,7 @@ export type MenuItem = {
   amt: number;
   description: string;
   toppings: ToppingType[];
+  image: string;
 };
 
 type SelectedType = {
@@ -27,6 +28,7 @@ export type Shop = {
 
 export const menuItems: MenuItem[] = [
   {
+    image: '/images/burrito.png',
     name: 'burrito',
     description: 'a yummy deep fried steak thingy',
     amt: 5.99,
@@ -37,6 +39,7 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
+    image: '/images/burrito.png',
     name: 'chicken burrito',
     description: 'a yummy deep fried chickeny delight',
     amt: 6.99,
@@ -48,6 +51,7 @@ export const menuItems: MenuItem[] = [
   },
   {
     name: 'taco',
+    image: 'images/taco.png',
     description: 'shredded beef or chicken with cheese and salsa',
     amt: 8.0,
     toppings: [
@@ -61,6 +65,7 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
+    image: '/images/taco.png',
     name: 'taco extreme',
     description:
         ' a whole bunch of shredded beef or chicken with cheese and salsa',
@@ -80,7 +85,7 @@ export const menuItems: MenuItem[] = [
 export const shopInfo: Shop = {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
-  shop_description: 'A festive place to eat your foods',
+  shop_description: 'A festive place to (not actually) eat your food',
   selected: { price: 0, name: '', toppings: [] },
   cart: { price: 0, name: '', toppings: [] },
   menu_items: menuItems,
