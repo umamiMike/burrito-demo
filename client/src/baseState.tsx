@@ -28,7 +28,7 @@ export type Shop = {
 
 export const menuItems: MenuItem[] = [
   {
-    image: '/images/burrito.png',
+    image: 'images/burrito.png',
     name: 'burrito',
     description: 'a yummy deep fried steak thingy',
     amt: 5.99,
@@ -39,7 +39,7 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    image: '/images/burrito.png',
+    image: 'images/burrito.png',
     name: 'chicken burrito',
     description: 'a yummy deep fried chickeny delight',
     amt: 6.99,
@@ -65,8 +65,8 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    image: '/images/taco.png',
-    name: 'taco extreme',
+    image: 'images/extreme-burrito.png',
+    name: 'burrito extreme',
     description:
         ' a whole bunch of shredded beef or chicken with cheese and salsa',
     amt: 8.0,

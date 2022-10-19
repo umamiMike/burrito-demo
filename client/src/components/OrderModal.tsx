@@ -5,24 +5,7 @@ import { guid } from '../utils';
 import { AppContext } from '../AppContext';
 import { Topping } from './Topping';
 import type { MenuItem, ToppingType } from '../baseState';
-
-type Image = {
-  name: string;
-  url: string;
-  styles: string;
-};
-
-function OrderImage(props: Image) {
-  const { url, name, styles } = props;
-  return (
-    <div className={`${styles} `}>
-      <img
-        alt={name}
-        src={url}
-      />
-    </div>
-  );
-}
+import { OrderImage } from '../FakeImage';
 
 export function OrderModal() {
   const ctx = useContext(AppContext);
@@ -51,7 +34,7 @@ export function OrderModal() {
           </button>
         </div>
         { OrderImage({
-          name: splashname, url: 'https://fakeimg.pl/320x120/', styles: 'p-4-rounded-lg',
+          name: splashname, image: selected?.image, styles: 'w-20 p-4-rounded-lg',
         })}
         <div className="grid  gap-2 w-full">
           { Toppings }

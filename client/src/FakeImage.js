@@ -13,13 +13,14 @@ export function FakeImage(props) {
 
 export function OrderImage(props) {
   const {
-    name, w, h, styles, image,
+    name, styles, image,
   } = props;
   return (
     <div className={`${styles} `}>
       <img
+        className="w-100 object-contain aspect-video"
         alt={name}
-        src={image}
+        src={`/${image}`}
       />
     </div>
   );
