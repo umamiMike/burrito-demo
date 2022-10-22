@@ -8,7 +8,7 @@ Trivial happy path implementation of a shopping cart client written in Javascrip
 - uses Typescript
 - uses React with useReducer() and useContext() hooks
 - Apollo GraphQL client
-- Elixir Poison GraphQL plug
+- uses [Absinthe](https://github.com/absinthe-graphql/absinthe)  GraphQL plug
 - uses TailwindCSS for styling
 
 ## Server
