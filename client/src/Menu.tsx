@@ -11,18 +11,21 @@ export function Menu() {
     const key = guid();
 
     return (
-      <button
-        type="button"
+      <div
         key={key}
-        className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
-        onClick={() => {
-          dispatch({ type: 'START_ORDER', payload: menuItem });
-        }}
+        className="card"
       >
         <div className="p-4">
           <div className="text-xl font-bold ">
-            {' '}
-            {menuItem.name}
+            <button
+              onClick={() => {
+                dispatch({ type: 'START_ORDER', payload: menuItem });
+              }}
+              type="button"
+            >
+              {' '}
+              {menuItem.name}
+            </button>
           </div>
           <div className="item-description">
             {' '}
@@ -37,11 +40,9 @@ export function Menu() {
           key={guid}
           image={menuItem.image}
           name={menuItem.name}
-          w={120}
-          h={120}
-          styles="border-none overflow-clip justify-self-end rounded-md"
+          styles="border-none  justify-self-end rounded-md"
         />
-      </button>
+      </div>
     );
   });
 
