@@ -5,18 +5,18 @@ defmodule BurritosWeb.Schema do
 
   alias BurritosWeb.Resolvers
 
-  object :item do
+  object :menu_item do
     field :id, :id
     field :name, :string
   end
 
   object :items do
-    field :items, list_of(:item)
+    field :items, list_of(:menu_item)
   end
 
   query do
     @desc "get all items"
-    field :all_items, list_of(:item) do
+    field :all_items, list_of(:menu_item) do
       resolve(&Resolvers.Item.list_items/3)
     end
   end

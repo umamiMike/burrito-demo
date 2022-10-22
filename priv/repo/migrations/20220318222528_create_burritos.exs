@@ -4,8 +4,7 @@ defmodule Burritos.Repo.Migrations.CreateBurritos do
   def change do
     create table(:burritos, primary_key: false) do
       add :id, :binary_id, primary_key: true
-      add :name, :string
-      add :toppings, :json
+      add :state, :json
       timestamps()
     end
   end

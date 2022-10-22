@@ -27,9 +27,12 @@ defmodule Burritos.OrderTest do
       assert burrito.name == "some name"
       assert burrito.toppings == "some toppings"
     end
+    @jsontoppings """
+                    {["foo", "bar"]}
+                  """
 
     test "create_burrito with json toppings" do
-      valid_attrs = %{name: "some name", toppings: """{["foo", "bar"]}"""}
+      valid_attrs = %{name: "some name", toppings: ["foo", "bar"] }
 
       assert {:ok, %Burrito{} = burrito} = Order.create_burrito(valid_attrs)
       assert burrito.name == "some name"
