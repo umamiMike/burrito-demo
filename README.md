@@ -6,10 +6,10 @@ Trivial happy path implementation of a shopping cart client written in Javascrip
 
 ## Features
 - uses Typescript
+- uses TailwindCSS for styling
 - uses React with useReducer() and useContext() hooks
 - Apollo GraphQL client
-- Elixir Poison GraphQL plug
-- uses TailwindCSS for styling
+- Elixir Absinthe GraphQL plug
 
 ## Server
 

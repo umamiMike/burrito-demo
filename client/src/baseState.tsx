@@ -29,8 +29,8 @@ export type Shop = {
 export const menuItems: MenuItem[] = [
   {
     image: 'images/burrito.png',
-    name: 'burrito',
-    description: 'a yummy deep fried steak thingy',
+    name: 'Ground Beef Burrito',
+    description: 'Everything you want after a long day',
     amt: 5.99,
     toppings: [
       { name: 'sour cream', amt: 1.99 },
@@ -40,8 +40,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     image: 'images/burrito.png',
-    name: 'chicken burrito',
-    description: 'a yummy deep fried chickeny delight',
+    name: 'Chicken Burrito',
+    description: 'Spicy or mild, melt-in-your-mouth good ',
     amt: 6.99,
     toppings: [
       { name: 'sour cream', amt: 1.99 },
@@ -50,10 +50,10 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    name: 'taco',
+    name: 'Taco',
     image: 'images/taco.png',
     description: 'shredded beef or chicken with cheese and salsa',
-    amt: 8.0,
+    amt: 2.0,
     toppings: [
       { name: 'sour cream', amt: 1.99 },
       { name: 'rice and beans', amt: 2.99 },
@@ -66,10 +66,10 @@ export const menuItems: MenuItem[] = [
   },
   {
     image: 'images/extreme-burrito.png',
-    name: 'burrito extreme',
+    name: 'Burrito Extreme',
     description:
-        ' a whole bunch of shredded beef or chicken with cheese and salsa',
-    amt: 8.0,
+        'The word extreme was invented for this Burrito, Loaded with all the goods',
+    amt: 3.50,
     toppings: [
       { name: 'sour cream', amt: 1.99 },
       { name: 'rice and beans', amt: 2.99 },
@@ -85,7 +85,7 @@ export const menuItems: MenuItem[] = [
 export const shopInfo: Shop = {
   shop_name: 'Casa de Miguel',
   shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
-  shop_description: 'A festive place to (not actually) eat your food',
+  shop_description: 'Food that Makes Your Taste Buds Sing',
   selected: { price: 0, name: '', toppings: [] },
   cart: { price: 0, name: '', toppings: [] },
   menu_items: menuItems,

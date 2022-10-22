@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from './AppContext';
 import { OrderModal } from './components/OrderModal';
-import { OrderImage } from './FakeImage';
 import { guid } from './utils';
 import type { MenuItem } from './baseState';
 
@@ -14,7 +13,7 @@ export function Menu() {
       <button
         type="button"
         key={key}
-        className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2 place-content-stretch rounded-md"
+        className=" justify-items-start max-w-screen-md  bg-gray-200 grid grid-cols-2  rounded-md"
         onClick={() => {
           dispatch({ type: 'START_ORDER', payload: menuItem });
         }}
@@ -33,13 +32,10 @@ export function Menu() {
             {menuItem.amt}
           </div>
         </div>
-        <OrderImage
-          key={guid}
-          image={menuItem.image}
-          name={menuItem.name}
-          w={120}
-          h={120}
-          styles="border-none overflow-clip justify-self-end rounded-md"
+        <img
+          className="max-w-xs"
+          alt={menuItem.name}
+          src={`/${menuItem.image}`}
         />
       </button>
     );
