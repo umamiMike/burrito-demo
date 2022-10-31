@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import type { MenuItem } from './baseState';
 
-export function Menu() {
+export function MenuCard(item: MenuItem) {
   return (
+
     <div>
       <a href="/" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl dark:border-gray-300 ">
         <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/images/burrito.png" alt="" />
@@ -10,7 +11,7 @@ export function Menu() {
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">menus item description</p>
         </div>
       </a>
-
     </div>
+
   );
 }
