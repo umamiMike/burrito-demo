@@ -18,7 +18,7 @@ export function OrderImage(props) {
   return (
     <div className={`${styles} `}>
       <img
-        className="object-contain "
+        className=""
         alt={name}
         src={`/${image}`}
       />

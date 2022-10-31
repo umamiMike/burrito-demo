@@ -84,8 +84,8 @@ export const menuItems: MenuItem[] = [
 
 export const shopInfo: Shop = {
   shop_name: 'Casa de Miguel',
-  shop_splash_img: 'https://i.imgur.com/jBzfI4t.jpg',
   shop_description: 'Food that Makes Your Taste Buds Sing',
+  shop_splash_img: 'images/shop-image.png',
   selected: { price: 0, name: '', toppings: [] },
   cart: { price: 0, name: '', toppings: [] },
   menu_items: menuItems,
