@@ -5,11 +5,11 @@ Trivial happy path implementation of a shopping cart client written in Javascrip
 [hosted here](https://wilding-burrito.web.app/)
 
 ## Features
-- uses Typescript
-- uses TailwindCSS for styling
-- uses React with useReducer() and useContext() hooks
 - Apollo GraphQL client
-- Elixir Absinthe GraphQL plug
+-  [Absinthe](https://github.com/absinthe-graphql/absinthe)  GraphQL plug
+-  React with useReducer() and useContext() hooks
+-  Typescript
+-  TailwindCSS for styling
 
 ## Server
 
