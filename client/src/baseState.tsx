@@ -23,7 +23,7 @@ export type Shop = {
   shop_description: string;
   selected: SelectedType;
   cart: SelectedType;
-  menu_items: MenuItem[];
+  menuItems: MenuItem[];
 };
 
 export const menuItems: MenuItem[] = [
@@ -88,7 +88,7 @@ export const shopInfo: Shop = {
   shop_splash_img: 'images/shop-image.png',
   selected: { price: 0, name: '', toppings: [] },
   cart: { price: 0, name: '', toppings: [] },
-  menu_items: menuItems,
+  menuItems,
 };
 
 export type Cart = {

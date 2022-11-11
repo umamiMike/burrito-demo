@@ -11,7 +11,7 @@ export function OrderModal() {
   const ctx = useContext(AppContext);
   const { state, dispatch } = ctx;
 
-  const selected = state.menu_items.find(
+  const selected = state.menuItems.find(
     (el: MenuItem) => el.name === state.selected.name,
   );
   // eslint-disable-next-line max-len

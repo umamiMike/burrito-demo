@@ -10,7 +10,7 @@ import { menuItems, shopInfo, cart } from './baseState';
 const appState = {
   ...shopInfo,
   ...cart,
-  menuItems: { menuItems },
+  ...menuItems,
 };
 
 export const AppContext = createContext<{ state: Shop ; dispatch: any }>({

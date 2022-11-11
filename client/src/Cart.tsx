@@ -5,8 +5,6 @@ export function Cart() {
   const { state } = useContext(AppContext);
   const { cart } = state;
   const visible = cart.toppings.length > 0 ? 'bottom-0' : ' -bottom-1/4';
-  console.log(cart.toppings);
-  console.log(visible);
   const price = cart.price ? `$${cart.price.toFixed(2)}` : '';
   const toppingsMessage = () => cart.toppings.map((t) => t.name)
     .join(', ')
