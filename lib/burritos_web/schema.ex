@@ -14,10 +14,26 @@ defmodule BurritosWeb.Schema do
     field :items, list_of(:item)
   end
 
+  object :order do
+    field :id, :id
+    field :status, :string
+    field :price, :float
+  end
+
+  object :orders do
+    field :orders, list_of(:order)
+  end
+
+
   query do
     @desc "get all items"
     field :all_items, list_of(:item) do
-      resolve(&Resolvers.Item.list_items/3)
+      resolve(&Resolvers.list_items/3)
+    end
+
+    @desc "get all orders"
+    field :all_orders, list_of(:order) do
+      resolve(&Resolvers.list_orders/3)
     end
   end
 
@@ -27,21 +43,16 @@ defmodule BurritosWeb.Schema do
       arg(:id, non_null(:string))
       arg(:name, non_null(:string))
 
-      resolve(&Resolvers.Item.add_item/3)
+      resolve(&Resolvers.add_item/3)
+    end
+
+    @desc "create a new order"
+    field :add_order, :orders do
+      arg(:id, non_null(:string))
+      arg(:name, non_null(:string))
+
+      resolve(&Resolvers.add_order/3)
     end
   end
 end
 
-defmodule BurritosWeb.Resolvers.Item do
-  @items [%{id: "foo", name: "Foo"}, %{id: "bar", name: "Bar"}]
-
-  def list_items(_parent, _args, _resolution) do
-    {:ok, @items}
-  end
-
-  def add_item(_parent, args, _resolution) do
-    item = %{id: args.id, name: args.name}
-    all_items = [item | @items]
-    {:ok, %{items: all_items}}
-  end
-end
