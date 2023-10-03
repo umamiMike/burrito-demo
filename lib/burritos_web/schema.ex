@@ -4,6 +4,7 @@ defmodule BurritosWeb.Schema do
   # @desc "An item"
 
   alias BurritosWeb.Resolvers
+  alias Burritos.Order
 
   object :item do
     field :id, :id

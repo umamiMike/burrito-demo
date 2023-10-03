@@ -1,4 +1,9 @@
 defmodule BurritosWeb.Resolvers do
+
+
+  alias Burritos.Order
+
+  
   @items [%{id: "foo", name: "Foo"}, %{id: "bar", name: "Bar"}]
 
   def list_items(_parent, _args, _resolution) do
@@ -17,7 +22,14 @@ defmodule BurritosWeb.Resolvers do
   ]
 
   def list_orders(_parent, _args, _resolution) do
-    {:ok, @orders}
+    all_burritos = Order.list_burritos()  
+                   |> Enum.map(fn burr -> %{
+                     id: burr.id,
+                     status: "started"
+                   }end)
+
+
+    {:ok, all_burritos}
   end
 
   def add_order(_parent, args, _resolution) do
