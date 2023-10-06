@@ -4,7 +4,6 @@ defmodule BurritosWeb.Schema do
   # @desc "An item"
 
   alias BurritosWeb.Resolvers
-  alias Burritos.Order
 
   object :item do
     field :id, :id
@@ -14,6 +13,12 @@ defmodule BurritosWeb.Schema do
   object :items do
     field :items, list_of(:item)
   end
+
+  object :menu do
+    field :id, :id 
+    field :name, :string
+  end
+
 
   object :order do
     field :id, :id
@@ -25,6 +30,13 @@ defmodule BurritosWeb.Schema do
     field :orders, list_of(:order)
   end
 
+  object :shop_info do
+    field :shop_name, :string
+    field :shop_splash_img, :string
+    field :shop_description, :string
+    field :order, :order
+    field :menu, :menu
+  end
 
   query do
     @desc "get all items"
@@ -36,6 +48,12 @@ defmodule BurritosWeb.Schema do
     field :all_orders, list_of(:order) do
       resolve(&Resolvers.list_orders/3)
     end
+
+    @desc "load shop"
+    field :shop_info, :shop_info do
+      resolve(&Resolvers.load_shop/2)
+    end
+
   end
 
   mutation do
@@ -56,4 +74,3 @@ defmodule BurritosWeb.Schema do
     end
   end
 end
-
