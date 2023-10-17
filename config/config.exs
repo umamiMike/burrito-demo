@@ -7,15 +7,15 @@
 # General application configuration
 import Config
 
-config :burritos,
-  ecto_repos: [Burritos.Repo],
+config :shop,
+  ecto_repos: [Shop.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :burritos, BurritosWeb.Endpoint,
+config :shop, ShopWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: BurritosWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Burritos.PubSub,
+  render_errors: [view: ShopWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Shop.PubSub,
   live_view: [signing_salt: "X966nuHf"]
 
 # Configures Elixir's Logger

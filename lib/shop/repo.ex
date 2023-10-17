@@ -1,5 +1,5 @@
-defmodule Burritos.Repo do
+defmodule Shop.Repo do
   use Ecto.Repo,
-    otp_app: :burritos,
+    otp_app: :shop,
     adapter: Ecto.Adapters.Postgres
 end

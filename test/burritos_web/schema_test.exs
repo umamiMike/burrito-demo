@@ -1,5 +1,5 @@
-defmodule BurritosWeb.SchemaTest do
-  use BurritosWeb.ConnCase
+defmodule ShopWeb.SchemaTest do
+  use ShopWeb.ConnCase
 
   @all_items_query """
   query {

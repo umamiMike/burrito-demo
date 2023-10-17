@@ -1,9 +1,7 @@
-defmodule BurritosWeb.Schema do
+defmodule ShopWeb.Schema do
   use Absinthe.Schema
-  # Example data
-  # @desc "An item"
 
-  alias BurritosWeb.Resolvers
+  alias ShopWeb.Resolvers
 
   object :item do
     field :id, :id
@@ -66,11 +64,11 @@ defmodule BurritosWeb.Schema do
     end
 
     @desc "create a new order"
-    field :add_order, :orders do
+    field :create_order, :orders do
       arg(:id, non_null(:string))
       arg(:name, non_null(:string))
 
-      resolve(&Resolvers.add_order/3)
+      resolve(&Resolvers.create_order/3)
     end
   end
 end

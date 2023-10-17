@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :burritos, Burritos.Repo,
+config :shop, Shop.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "burritos_dev",
+  database: "shops_dev",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -15,7 +15,7 @@ config :burritos, Burritos.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :burritos, BurritosWeb.Endpoint,
+config :shop, ShopWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {0, 0, 0, 0}, port: 4000],
@@ -50,12 +50,12 @@ config :burritos, BurritosWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :burritos, BurritosWeb.Endpoint,
+config :shop, ShopWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"lib/burritos_web/(live|views)/.*(ex)$",
-      ~r"lib/burritos_web/templates/.*(eex)$"
+      ~r"lib/shops_web/(live|views)/.*(ex)$",
+      ~r"lib/shops_web/templates/.*(eex)$"
     ]
   ]
 

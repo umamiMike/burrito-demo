@@ -1,12 +1,12 @@
-defmodule BurritosWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :burritos
+defmodule ShopWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :shop
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_burritos_key",
+    key: "_shops_key",
     signing_salt: "bMPw1Eou"
   ]
 
@@ -16,7 +16,7 @@ defmodule BurritosWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :burritos
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :shops
   end
 
   plug Plug.RequestId
@@ -32,5 +32,5 @@ defmodule BurritosWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
 
-  plug BurritosWeb.Router
+  plug ShopWeb.Router
 end

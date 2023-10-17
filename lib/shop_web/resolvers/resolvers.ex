@@ -1,5 +1,5 @@
-defmodule BurritosWeb.Resolvers do
-  alias Burritos.Order
+defmodule ShopWeb.Resolvers do
+  alias Shop.Order
 
   @items [%{id: "foo", name: "Foo"}, %{id: "bar", name: "Bar"}]
 
@@ -7,6 +7,7 @@ defmodule BurritosWeb.Resolvers do
     {:ok, @items}
   end
 
+  # TODO: convert to actual database 
   def load_shop(_parent, _args_resolution) do
     shopinfo = %{
       shop_name: "A am the name of a shop",
@@ -31,8 +32,8 @@ defmodule BurritosWeb.Resolvers do
   ]
 
   def list_orders(_parent, _args, _resolution) do
-    all_burritos =
-      Order.list_burritos()
+    all_shops =
+      Order.list_shops()
       |> Enum.map(fn burr ->
         %{
           id: burr.id,
@@ -40,10 +41,10 @@ defmodule BurritosWeb.Resolvers do
         }
       end)
 
-    {:ok, all_burritos}
+    {:ok, all_shops}
   end
 
-  def add_order(_parent, args, _resolution) do
+  def create_order(_parent, args, _resolution) do
     order = %{id: args.id, name: args.name}
     all_orders = [order | @orders]
     {:ok, %{items: all_orders}}

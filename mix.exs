@@ -1,10 +1,9 @@
-defmodule Burritos.MixProject do
+defmodule Shop.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :burritos,
-      version: "0.1.0",
+      app: :shop, version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),
@@ -19,7 +18,7 @@ defmodule Burritos.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Burritos.Application, []},
+      mod: {Shop.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

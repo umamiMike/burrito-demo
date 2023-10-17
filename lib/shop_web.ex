@@ -1,12 +1,12 @@
-defmodule BurritosWeb do
+defmodule ShopWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use BurritosWeb, :controller
-      use BurritosWeb, :view
+      use ShopWeb, :controller
+      use ShopWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,18 +19,18 @@ defmodule BurritosWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: BurritosWeb
+      use Phoenix.Controller, namespace: ShopWeb
 
       import Plug.Conn
-      alias BurritosWeb.Router.Helpers, as: Routes
+      alias ShopWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/burritos_web/templates",
-        namespace: BurritosWeb
+        root: "lib/shops_web/templates",
+        namespace: ShopWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -67,8 +67,8 @@ defmodule BurritosWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import BurritosWeb.ErrorHelpers
-      alias BurritosWeb.Router.Helpers, as: Routes
+      import ShopWeb.ErrorHelpers
+      alias ShopWeb.Router.Helpers, as: Routes
     end
   end
 

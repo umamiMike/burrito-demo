@@ -1,6 +1,6 @@
-defmodule Burritos do
+defmodule Shop do
   @moduledoc """
-  Burritos keeps the contexts that define your domain
+  Shop keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

@@ -1,4 +1,4 @@
-defmodule Burritos.DataCase do
+defmodule Shop.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule Burritos.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use Burritos.DataCase, async: true`, although
+  by setting `use Shop.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,17 +18,17 @@ defmodule Burritos.DataCase do
 
   using do
     quote do
-      alias Burritos.Repo
+      alias Shop.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Burritos.DataCase
+      import Shop.DataCase
     end
   end
 
   setup tags do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Burritos.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Shop.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
     :ok
   end

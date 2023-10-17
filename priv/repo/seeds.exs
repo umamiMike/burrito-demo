@@ -5,9 +5,8 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     Burritos.Repo.insert!(%Burritos.SomeSchema{})
+#     Shop.Repo.insert!(%Burritos.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 #
-Burritos.Repo.insert!(%Burritos.Order.create_burrito())
