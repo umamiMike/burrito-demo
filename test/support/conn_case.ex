@@ -27,7 +27,7 @@ defmodule ShopWeb.ConnCase do
       alias ShopWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint BurritosWeb.Endpoint
+      @endpoint ShopWeb.Endpoint
     end
   end
 

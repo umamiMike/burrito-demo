@@ -45,8 +45,8 @@ defmodule ShopWeb.Resolvers do
   end
 
   def create_order(_parent, args, _resolution) do
-    order = %{id: args.id, name: args.name}
-    all_orders = [order | @orders]
-    {:ok, %{items: all_orders}}
+    order = %{ id: 3, status: "started", price: args.price} 
+    all_orders = [order | @orders] 
+    {:ok, %{orders: all_orders}}
   end
 end
