@@ -2,12 +2,6 @@ defmodule ShopWeb.Resolvers do
 
   alias Shop.Order
 
-  @items [%{id: "foo", name: "Foo"}, %{id: "bar", name: "Bar"}]
-
-  def list_items(_parent, _args, _resolution) do
-    {:ok, @items}
-  end
-
   # TODO: convert to actual database 
   def load_shop(_parent, _args_resolution) do
     shopinfo = %{
@@ -27,21 +21,10 @@ defmodule ShopWeb.Resolvers do
     {:ok, %{items: all_items}}
   end
 
-  @orders [
-    %{id: 1, status: "started", price: 6.56},
-    %{id: 2, status: "completed", price: 5.22}
-  ]
 
   def list_orders(_parent, _args, _resolution) do
     all_orders =
       Order.list_orders()
-      |> Enum.map(fn burr ->
-        %{
-          id: burr.id,
-          status: "started"
-        }
-      end)
-
     {:ok, all_orders}
   end
 
