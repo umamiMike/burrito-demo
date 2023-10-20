@@ -20,6 +20,7 @@ defmodule ShopWeb.Schema do
 
   object :order do
     field :id, :id
+    field :order_id, :string
     field :status, :string
     field :price, :float
   end
@@ -64,8 +65,8 @@ defmodule ShopWeb.Schema do
     end
 
     @desc "create a new order"
-    field :create_order, :orders do
-      arg(:price, non_null(:float))
+    field :create_order, :order do
+      arg(:price, non_null(:string))
 
       resolve(&Resolvers.create_order/3)
     end

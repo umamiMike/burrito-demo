@@ -1,4 +1,5 @@
 defmodule ShopWeb.Resolvers do
+
   alias Shop.Order
 
   @items [%{id: "foo", name: "Foo"}, %{id: "bar", name: "Bar"}]
@@ -33,7 +34,7 @@ defmodule ShopWeb.Resolvers do
 
   def list_orders(_parent, _args, _resolution) do
     all_orders =
-      Shop.list_orders()
+      Order.list_orders()
       |> Enum.map(fn burr ->
         %{
           id: burr.id,
@@ -45,8 +46,8 @@ defmodule ShopWeb.Resolvers do
   end
 
   def create_order(_parent, args, _resolution) do
-    order = %{ id: 3, status: "started", price: args.price} 
-    all_orders = [order | @orders] 
-    {:ok, %{orders: all_orders}}
+    {:ok, %{order_id: order_id }}  = Order.create_order(%{price: args.price, status: :started }) |> IO.inspect(label: "order")
+
+    {:ok, %{order_id: order_id }}
   end
 end
