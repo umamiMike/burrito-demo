@@ -1,4 +1,4 @@
-defmodule Shop.Orders do
+defmodule Shop.Foo do
   @moduledoc """
   The Foo context.
   """
@@ -6,7 +6,7 @@ defmodule Shop.Orders do
   import Ecto.Query, warn: false
   alias Shop.Repo
 
-  alias Shop.Orders
+  alias Shop.Foo.Orders
 
   @doc """
   Returns the list of order.

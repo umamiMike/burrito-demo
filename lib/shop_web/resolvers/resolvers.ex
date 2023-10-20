@@ -32,8 +32,8 @@ defmodule ShopWeb.Resolvers do
   ]
 
   def list_orders(_parent, _args, _resolution) do
-    all_shops =
-      Order.list_shops()
+    all_orders =
+      Shop.list_orders()
       |> Enum.map(fn burr ->
         %{
           id: burr.id,
@@ -41,7 +41,7 @@ defmodule ShopWeb.Resolvers do
         }
       end)
 
-    {:ok, all_shops}
+    {:ok, all_orders}
   end
 
   def create_order(_parent, args, _resolution) do
