@@ -1,8 +1,7 @@
-defmodule Shop.Order do
+defmodule Shop.Orders.Order do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @primary_key {:uuid, :binary_id, autogenerate: true}
 
   schema "orders" do
     field :price, :decimal

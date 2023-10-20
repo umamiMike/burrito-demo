@@ -1,4 +1,4 @@
-defmodule Shop.Orders do
+defmodule Shop.Order do
   @moduledoc """
   The Foo context.
   """
@@ -6,7 +6,7 @@ defmodule Shop.Orders do
   import Ecto.Query, warn: false
   alias Shop.Repo
 
-  alias Shop.Orders
+  alias Shop.Orders.Order
 
   @doc """
   Returns the list of order.
@@ -17,8 +17,8 @@ defmodule Shop.Orders do
       [%Orders{}, ...]
 
   """
-  def list_order do
-    Repo.all(Orders)
+  def list_orders do
+    Repo.all(Order)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule Shop.Orders do
       ** (Ecto.NoResultsError)
 
   """
-  def get_orders!(id), do: Repo.get!(Orders, id)
+  def get_order!(id), do: Repo.get!(Order, id)
 
   @doc """
   Creates a orders.
@@ -43,15 +43,15 @@ defmodule Shop.Orders do
   ## Examples
 
       iex> create_orders(%{field: value})
-      {:ok, %Orders{}}
+      {:ok, %Order{}}
 
       iex> create_orders(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_orders(attrs \\ %{}) do
-    %Orders{}
-    |> Orders.changeset(attrs)
+  def create_order(attrs \\ %{}) do
+    %Order{}
+    |> Order.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -67,9 +67,9 @@ defmodule Shop.Orders do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_orders(%Orders{} = orders, attrs) do
-    orders
-    |> Orders.changeset(attrs)
+  def update_order(%Order{} = order, attrs) do
+    order
+    |> Order.changeset(attrs)
     |> Repo.update()
   end
 
@@ -85,8 +85,8 @@ defmodule Shop.Orders do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_orders(%Orders{} = orders) do
-    Repo.delete(orders)
+  def delete_order(%Order{} = order) do
+    Repo.delete(order)
   end
 
   @doc """
@@ -98,7 +98,7 @@ defmodule Shop.Orders do
       %Ecto.Changeset{data: %Orders{}}
 
   """
-  def change_orders(%Orders{} = orders, attrs \\ %{}) do
-    Orders.changeset(orders, attrs)
+  def change_order(%Order{} = order, attrs \\ %{}) do
+    Order.changeset(order, attrs)
   end
 end
